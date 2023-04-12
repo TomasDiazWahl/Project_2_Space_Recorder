@@ -5,10 +5,39 @@ import androidx.room.Entity;
 import java.util.ArrayList;
 
 @Entity
-public class Galaxy {
+public class Galaxy extends SpaceObject{
+
+    //Variables
+    private ArrayList<SolarSystem> SolarSystems;
 
 
-    //Name of the galaxy
-    private String name;
-    private ArrayList<SolarSystem> Solar_Systems;
+
+    //Constructors
+    Galaxy(){
+        new Galaxy("", "Unknown");
+    }
+
+    Galaxy(String name, String discoverer){
+        super(name, discoverer);
+        this.SolarSystems = new ArrayList<>();
+    }
+
+
+
+    //Methods
+    void addSolarSystem(SolarSystem solarSystem){
+        SolarSystems.add(solarSystem);
+    }
+
+
+
+    //Getters and Setters
+
+    public ArrayList<SolarSystem> getSolarSystems() {
+        return SolarSystems;
+    }
+
+    public void setSolarSystems(ArrayList<SolarSystem> solarSystems) {
+        SolarSystems = solarSystems;
+    }
 }

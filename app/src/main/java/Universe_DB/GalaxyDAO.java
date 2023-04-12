@@ -1,9 +1,19 @@
 package Universe_DB;
 
-import androidx.room.DAO;
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Update;
 
-public interface GalaxyDAO {
+@Dao
+interface GalaxyDAO {
+
+    @Insert
+    void Insert();
+
+    @Update
+    void Update();
+
+    @Delete
+    void Delete();
 }
