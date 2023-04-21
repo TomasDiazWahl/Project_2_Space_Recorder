@@ -1,19 +1,37 @@
 package Universe_Structure;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+import Universe_DB.AppDataBaseSpace;
+
+@Entity(tableName = AppDataBaseSpace.DATABASE_TABLE)
 public abstract class SpaceObject {
 
+    @PrimaryKey(autoGenerate = true)
     public String Name;
     public String Discoverer;
+
+    private String Kind;
 
 
     //Default Constructor
     SpaceObject(){
-        this.Name = "";
-        this.Discoverer = "Unknown";
+        this("", "");
     }
     SpaceObject(String name, String discoverer){
         this.Name = name;
         this.Discoverer = discoverer;
+
+        if (this instanceof Galaxy){
+            Kind = "Galaxy";
+        }
+        else if (this instanceof SolarSystem){
+            Kind = "Solar System";
+        }
+        else{
+            Kind = "Planet";
+        }
     }
 
     //Methods
