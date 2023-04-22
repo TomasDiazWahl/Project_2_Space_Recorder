@@ -1,6 +1,5 @@
 package Universe_DB;
 
-
 import android.content.Context;
 
 import androidx.room.Database;

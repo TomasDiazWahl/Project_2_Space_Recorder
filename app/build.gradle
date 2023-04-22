@@ -32,7 +32,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    namespace 'Universe_DB'
+    namespace 'com.example.project_2_space_recorder'
 
     buildFeatures {
         viewBinding true

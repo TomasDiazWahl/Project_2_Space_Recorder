@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import Universe_DB.R;
+import com.example.project_2_space_recorder.R;
 
 public class MainActivity extends AppCompatActivity {
 
