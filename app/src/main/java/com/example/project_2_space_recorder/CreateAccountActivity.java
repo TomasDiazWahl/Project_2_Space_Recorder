@@ -9,40 +9,41 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.project_2_space_recorder.databinding.ActivityMainBinding;
+import com.example.project_2_space_recorder.databinding.CreateAccountBinding;
 
-public class MainActivity extends AppCompatActivity {
-
-    ActivityMainBinding mainBinding;
-
+public class CreateAccountActivity extends AppCompatActivity {
+    
+    CreateAccountBinding mainBinding;
     EditText username;
     EditText password;
-    Button loginButton;
+    EditText password2;
     Button createButton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.create_account);
 
-        mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        mainBinding = CreateAccountBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
 
-        username = mainBinding.editTextUsername;
-        password = mainBinding.editText;
-        loginButton = mainBinding.buttonLogIn;
-        createButton = mainBinding.buttonCreate;
+        username = mainBinding.editTextCrtUsername;
+        password = mainBinding.editTextCrtPassword;
+        password2 = mainBinding.editTextReenterPassword;
+        createButton = mainBinding.buttonCreateAccount;
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = CreateAccountActivity.getIntent(getApplicationContext());
+                Intent intent = MainActivity.getIntent(getApplicationContext());
                 startActivity(intent);
             }
         });
     }
 
     public static Intent getIntent(Context context){
-        return new Intent(context, MainActivity.class);
+        return new Intent(context, CreateAccountActivity.class);
     }
 }
