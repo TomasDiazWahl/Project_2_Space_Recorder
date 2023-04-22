@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = AppDataBaseUser.DATABASE_TABLE)
 public class User {
 
+    //Comment
     @PrimaryKey(autoGenerate = true)
     private int UserId;
 
