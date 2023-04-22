@@ -7,9 +7,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import Universe_Structure.SpaceObject;
-
-@Database(entities = {SpaceObject.class}, version = 1)
+@Database(entities = {User.class}, version = 1)
 public abstract class AppDataBaseUser extends RoomDatabase {
     public static final String DATABASE_NAME = "User.db";
     public static final String DATABASE_TABLE = "User_table";

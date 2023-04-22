@@ -9,6 +9,8 @@ import Universe_DB.AppDataBaseSpace;
 public abstract class SpaceObject {
 
     @PrimaryKey(autoGenerate = true)
+    private int SpaceObjectId;
+
     public String Name;
     public String Discoverer;
 
@@ -50,5 +52,21 @@ public abstract class SpaceObject {
 
     public void setDiscoverer(String discoverer) {
         Discoverer = discoverer;
+    }
+
+    public String getKind() {
+        return Kind;
+    }
+
+    public void setKind(String kind) {
+        Kind = kind;
+    }
+
+    public int getSpaceObjectId() {
+        return SpaceObjectId;
+    }
+
+    public void setSpaceObjectId(int spaceObjectId) {
+        SpaceObjectId = spaceObjectId;
     }
 }
