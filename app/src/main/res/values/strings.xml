@@ -5,4 +5,9 @@
     <string name="textview_login">Log In</string>
     <string name="button_log_in">Log In</string>
     <string name="button_create_account">Create Account</string>
+    <string name="textview_create_account">Create Account</string>
+    <string name="edit_text_enter_username">Enter Username</string>
+    <string name="edit_text_enter_password">Enter Password</string>
+    <string name="edit_text_re_enter_password">Re-Enter Password</string>
+    <string name="button_create_account_2">Create Account</string>
 </resources>
