@@ -8,8 +8,15 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import com.example.project_2_space_recorder.databinding.ActivityMainBinding;
+
+import java.util.List;
+
+import UserDB.AppDataBaseUser;
+import UserDB.User;
+import UserDB.UserDAO;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     EditText password;
     Button loginButton;
     Button createButton;
+
+    UserDAO userDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +41,18 @@ public class MainActivity extends AppCompatActivity {
         password = mainBinding.editText;
         loginButton = mainBinding.buttonLogIn;
         createButton = mainBinding.buttonCreate;
+        userDAO = Room.databaseBuilder(this, AppDataBaseUser.class, AppDataBaseUser.DATABASE_NAME)
+                .allowMainThreadQueries().build().UserDAO();
+
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (login()){
+                    startActivity(LandingPageActivity.getIntent(getApplicationContext()));
+                }
+            }
+        });
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +61,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    boolean login(){
+        String un = username.getText().toString();
+        String pw = password.getText().toString();
+        List<User> users = userDAO.getUserByName(un);
+
+        //No such user
+        if (users.isEmpty()){
+            return false;
+        }
+
+        User user = users.get(0);
+        return user.getPassword().equals(pw);
     }
 
     public static Intent getIntent(Context context){
