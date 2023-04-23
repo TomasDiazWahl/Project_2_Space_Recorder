@@ -9,23 +9,25 @@ public class User {
     //Comment
     @PrimaryKey(autoGenerate = true)
     private int UserId;
-
     String Name;
     private String Password;
     int Age;
+
+    int isAdmin;
 
 
 
 
     //Constructor
     public User(){
-       this("Bob", "", 50);
+       this("Bob", "", 50, 0);
     }
 
-    public User(String name, String password, int age){
+    public User(String name, String password, int age, int admin){
         this.Name = name;
         this.Password = password;
         this.Age = age;
+        this.isAdmin = admin;
     }
 
     //Getters and Setters

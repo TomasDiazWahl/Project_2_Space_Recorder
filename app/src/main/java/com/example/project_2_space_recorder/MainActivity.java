@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     UserDAO userDAO;
 
+    User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +46,14 @@ public class MainActivity extends AppCompatActivity {
         userDAO = Room.databaseBuilder(this, AppDataBaseUser.class, AppDataBaseUser.DATABASE_NAME)
                 .allowMainThreadQueries().build().UserDAO();
 
+        addUser();
+
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (login()){
-                    startActivity(LandingPageActivity.getIntent(getApplicationContext()));
+                    startActivity(LandingPageActivity.getIntent(getApplicationContext(), user.getUserId()));
                 }
             }
         });
@@ -73,11 +77,21 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
 
-        User user = users.get(0);
+        user = users.get(0);
         return user.getPassword().equals(pw);
     }
 
     public static Intent getIntent(Context context){
         return new Intent(context, MainActivity.class);
+    }
+
+    void addUser(){
+        if (userDAO.getUserByName("testuser1").isEmpty()){
+            userDAO.Insert(new User("testuser1", "testuser1", 0, 0));
+        }
+
+        if (userDAO.getUserByName("admin2").isEmpty()){
+            userDAO.Insert(new User("admin2", "admin2", 0, 1));
+        }
     }
 }

@@ -61,7 +61,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             String pw = password.getText().toString();
             String pw2 = password2.getText().toString();
             if (!pw.equals("") && pw.equals(pw2)){
-                userDAO.Insert(new User(un, pw, 0));
+                userDAO.Insert(new User(un, pw, 0, 0));
                 System.out.println("User Created");
                 return true;
             }
