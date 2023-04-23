@@ -23,6 +23,9 @@
         <activity
             android:name=".CreateAccountActivity"
             android:exported="true"/>
+        <activity
+            android:name=".LandingPageActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

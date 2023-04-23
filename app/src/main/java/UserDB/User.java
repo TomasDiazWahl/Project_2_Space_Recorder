@@ -64,4 +64,23 @@ public class User {
     public void setUserId(int userId) {
         UserId = userId;
     }
+
+    public int getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "UserId=" + UserId +
+                ", Name='" + Name + '\'' +
+                ", Password='" + Password + '\'' +
+                ", Age=" + Age +
+                ", isAdmin=" + isAdmin +
+                '}';
+    }
 }
