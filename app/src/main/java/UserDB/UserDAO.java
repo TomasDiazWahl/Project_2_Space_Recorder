@@ -28,4 +28,6 @@ public interface UserDAO {
 
     @Query("SELECT * FROM " + AppDataBaseUser.DATABASE_TABLE + " WHERE name = :username")
     List<User> getUserByName(String username);
+
+    // sql join for planet and solar system stufff
 }

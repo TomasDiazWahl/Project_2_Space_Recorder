@@ -14,4 +14,9 @@
     <string name="button_admin">Admin</string>
     <string name="textview_planet_id">Planet ID</string>
     <string name="button_log_out">Log Out</string>
+    <string name="searchview_search_here">Search Here</string>
+    <string name="find_new_planet">Find New Planet</string>
+    <string name="find_new_solar_system">Find New Solar System</string>
+    <string name="jump_through_wormhole">Jump Through Wormhole</string>
+    <string name="cool_black_hole_render">Cool Black Hole Render</string>
 </resources>

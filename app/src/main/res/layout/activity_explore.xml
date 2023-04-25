@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/black_hole"
+        android:contentDescription="@string/cool_black_hole_render" />
+
+    <Button
+        android:id="@+id/find_new_planet"
+        android:layout_width="264dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/find_new_planet"/>
+
+    <Button
+        android:id="@+id/find_new_solar_system"
+        android:layout_width="264dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/find_new_solar_system"
+        app:layout_constraintTop_toBottomOf="@+id/find_new_planet" />
+
+    <Button
+        android:id="@+id/jump_through_wormhole"
+        android:layout_width="207dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/jump_through_wormhole"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/find_new_solar_system" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
