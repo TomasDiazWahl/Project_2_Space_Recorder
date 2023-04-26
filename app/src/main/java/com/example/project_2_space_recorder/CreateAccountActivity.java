@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -56,20 +57,26 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     boolean createUser(){
         String un = username.getText().toString();
-        System.out.println(un);
+        Toast t = new Toast(getApplicationContext());
+
         if (userDAO.getUserByName(un).isEmpty()){
             String pw = password.getText().toString();
             String pw2 = password2.getText().toString();
             if (!pw.equals("") && pw.equals(pw2)){
                 userDAO.Insert(new User(un, pw, 0, 0));
                 System.out.println("User Created");
+                t.setText("Successfully logged in");
+                t.show();
                 return true;
             }
             //Error: not same password
-            System.out.println("Both passwords are different");
+            t.setText("Passwords are not the same");
+            t.show();
+            return false;
         }
         //Error: username taken
-        System.out.println("Username already taken");
+        t.setText("Username already taken");
+        t.show();
         return false;
     }
 
