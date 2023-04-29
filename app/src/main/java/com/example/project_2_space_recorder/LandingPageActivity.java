@@ -25,7 +25,7 @@ public class LandingPageActivity extends AppCompatActivity {
     UserDAO userDAO;
 
     ActivityLandingPageBinding mainBinding;
-    TextView username;
+    Button profileButton;
     TextView planetID;
     Button adminButton;
     Button logOutButton;
@@ -40,7 +40,7 @@ public class LandingPageActivity extends AppCompatActivity {
         mainBinding = ActivityLandingPageBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
 
-        username = mainBinding.displayUsername;
+        profileButton = mainBinding.buttonProfile;
         planetID = mainBinding.planetId;
         adminButton = mainBinding.admin;
         logOutButton = mainBinding.buttonLogOut;
@@ -48,8 +48,8 @@ public class LandingPageActivity extends AppCompatActivity {
                 .allowMainThreadQueries().build().UserDAO();
         USERID = getIntent().getIntExtra(idGetter, 0);
         USER = userDAO.getUserById(USERID).get(0);
+        profileButton.setText(USER.getName().substring(0, 1));
 
-        username.setHint(USER.getName());
         if (USER.getIsAdmin() == 1){
             adminButton.setVisibility(View.VISIBLE);
         }

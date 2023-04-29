@@ -22,4 +22,5 @@
     <string name="edit_text_enter_planet_name">Enter Planet Name</string>
     <string name="text_view_your_home_planet">Your Home Planet:</string>
     <string name="button_explore">Explore</string>
+    <string name="Profile">Your Profile</string>
 </resources>
