@@ -19,4 +19,7 @@
     <string name="find_new_solar_system">Find New Solar System</string>
     <string name="jump_through_wormhole">Jump Through Wormhole</string>
     <string name="cool_black_hole_render">Cool Black Hole Render</string>
+    <string name="edit_text_enter_planet_name">Enter Planet Name</string>
+    <string name="text_view_your_home_planet">Your Home Planet:</string>
+    <string name="button_explore">Explore</string>
 </resources>

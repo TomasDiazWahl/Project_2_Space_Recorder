@@ -7,50 +7,95 @@
 
 
     <ImageView
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/imageView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/m81_galaxy"/>
+        android:src="@drawable/exo_planet_habitable_0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/display_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="588dp"
         android:hint="@string/hint_display_username"
         android:textColorHint="@color/white"
         android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/admin"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/planet_name"
+        android:layout_width="186dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:hint="@string/edit_text_enter_planet_name"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.933"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/admin"
         android:layout_width="129dp"
         android:layout_height="62dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="24dp"
         android:text="@string/button_admin"
         android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.967" />
+
+    <Button
+        android:id="@+id/button_explore"
+        android:layout_width="148dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="500dp"
+        android:gravity="center"
+        android:text="@string/button_explore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/planet_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
         android:hint="@string/textview_planet_id"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:textSize="22sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/display_username" />
+        app:layout_constraintTop_toBottomOf="@+id/planet_name" />
+
+
+    <TextView
+        android:id="@+id/home_planet_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/text_view_your_home_planet"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toStartOf="@+id/planet_name"
+        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_log_out"
@@ -62,18 +107,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:iconifiedByDefault="false"
-        android:queryBackground="@color/white"
-        android:queryHint="Search..."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
