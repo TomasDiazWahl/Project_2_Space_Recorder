@@ -23,4 +23,5 @@
     <string name="text_view_your_home_planet">Your Home Planet:</string>
     <string name="button_explore">Explore</string>
     <string name="Profile">Your Profile</string>
+    <string name="button_search_the_universe">Search the Universe</string>
 </resources>
