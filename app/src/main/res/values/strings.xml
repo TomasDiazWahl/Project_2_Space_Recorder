@@ -23,4 +23,16 @@
     <string name="text_view_your_home_planet">Your Home Planet:</string>
     <string name="button_explore">Explore</string>
     <string name="Profile">Your Profile</string>
+    <string name="UsernameComma">Username:</string>
+    <string name="AgeComma">Age:</string>
+    <string name="enter_age">Enter Age</string>
+    <string name="confirm_changes">Confirm Changes</string>
+    <string name="age">Age:</string>
+    <string name="password">Password:</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm">Confirm:</string>
+
+    <string name="Note">Note: You may leave some fields blanks</string>
+    <string name="back">back</string>
+
 </resources>

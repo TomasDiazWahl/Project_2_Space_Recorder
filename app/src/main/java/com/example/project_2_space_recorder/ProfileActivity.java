@@ -1,5 +1,6 @@
 package com.example.project_2_space_recorder;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,13 +11,13 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
-import com.example.project_2_space_recorder.databinding.ActivityLandingPageBinding;
+import com.example.project_2_space_recorder.databinding.ActivityProfileBinding;
 
 import UserDB.AppDataBaseUser;
 import UserDB.User;
 import UserDB.UserDAO;
 
-public class LandingPageActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
     int USERID;
     private static final String idGetter = "LandingPage.userID";
@@ -24,11 +25,11 @@ public class LandingPageActivity extends AppCompatActivity {
 
     UserDAO userDAO;
 
-    ActivityLandingPageBinding mainBinding;
-    Button profileButton;
-    TextView planetID;
-    Button adminButton;
-    Button logOutButton;
+    ActivityProfileBinding mainBinding;
+    TextView username;
+    TextView age;
+    TextView back;
+    Button editProfileButton;
 
 
 
@@ -36,38 +37,36 @@ public class LandingPageActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_landing_page);
-        mainBinding = ActivityLandingPageBinding.inflate(getLayoutInflater());
+        setContentView(R.layout.activity_profile);
+        mainBinding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
         setupUser();
 
-        logOutButton.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(MainActivity.getIntent(getApplicationContext()));
+                startActivity(LandingPageActivity.getIntent(getApplicationContext(), USERID));
             }
         });
 
-        profileButton.setOnClickListener(new View.OnClickListener() {
+        editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(ProfileActivity.getIntent(getApplicationContext(), USERID));
+                startActivity(EditProfileActivity.getIntent(getApplicationContext(), USERID));
             }
         });
     }
 
-
+    @SuppressLint("SetTextI18n")
     void setupVariables(){
-        profileButton = mainBinding.buttonProfile;
-        planetID = mainBinding.planetId;
-        adminButton = mainBinding.admin;
-        logOutButton = mainBinding.buttonLogOut;
+        username = mainBinding.UsernameEdit;
+        age = mainBinding.AgeDisplay;
+        back = mainBinding.arrow;
+        editProfileButton = mainBinding.EditProfileButton;
 
-        profileButton.setText(USER.getName().substring(0, 1));
-
-        if (USER.getIsAdmin() == 1){
-            adminButton.setVisibility(View.VISIBLE);
-        }
+        System.out.println("Profile activity " + USER);
+        username.setText(USER.getName());
+        age.setText(String.valueOf(USER.getAge()));
     }
 
     void setupUser(){
@@ -75,12 +74,15 @@ public class LandingPageActivity extends AppCompatActivity {
                 .allowMainThreadQueries().build().UserDAO();
         USERID = getIntent().getIntExtra(idGetter, 0);
         USER = userDAO.getUserById(USERID).get(0);
-        System.out.println("LandingPage " + USER);
+
+
         setupVariables();
     }
 
+
+
     public static Intent getIntent(Context context, int userID){
-        Intent intent = new Intent(context, LandingPageActivity.class);
+        Intent intent = new Intent(context, com.example.project_2_space_recorder.ProfileActivity.class);
         intent.putExtra(idGetter, userID);
         return intent;
     }
