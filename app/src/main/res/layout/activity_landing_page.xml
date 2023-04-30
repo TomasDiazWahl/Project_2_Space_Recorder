@@ -27,6 +27,7 @@
         android:gravity="start"
         android:hint="@string/edit_text_enter_planet_name"
         android:textColorHint="@color/white"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,12 +59,14 @@
 
 
     <Button
-        android:text=""
         android:id="@+id/button_profile"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="55dp"
+        android:layout_height="53dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
+        android:text=""
+        android:gravity="center"
+        android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
