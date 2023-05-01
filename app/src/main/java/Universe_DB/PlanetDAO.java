@@ -3,18 +3,31 @@ package Universe_DB;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.Query;
 import androidx.room.Update;
 
-import Universe_Structure.SpaceObject;
+import java.util.List;
+
+import Universe_Structure.Planet;
 
 @Dao
 public interface PlanetDAO {
     @Insert
-    void Insert(SpaceObject...spaceObjects);
+    void Insert(Planet...planets);
 
     @Update
-    void Update(SpaceObject...spaceObjects);
+    void Update(Planet...planets);
 
     @Delete
-    void Delete(SpaceObject...spaceObjects);
+    void Delete(Planet...planets);
+
+
+    @Query("SELECT * FROM " + AppDataBaseSpace.PLANET_TABLE)
+    List<Planet> getPlanets();
+
+    @Query("SELECT * FROM " + AppDataBaseSpace.PLANET_TABLE + " WHERE planetId = :PlanetId")
+    List<Planet> getPlanetById(int PlanetId);
+
+    @Query("SELECT * FROM " + AppDataBaseSpace.PLANET_TABLE + " WHERE name = :PlanetName")
+    List<Planet> getPlanetByName(String PlanetName);
 }

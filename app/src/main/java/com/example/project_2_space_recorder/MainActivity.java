@@ -15,6 +15,12 @@ import com.example.project_2_space_recorder.databinding.ActivityMainBinding;
 
 import java.util.List;
 
+import Universe_DB.AppDataBaseSpace;
+import Universe_DB.GalaxyDAO;
+import Universe_DB.PlanetDAO;
+import Universe_DB.SolarSystemDAO;
+import Universe_Structure.Galaxy;
+import Universe_Structure.SolarSystem;
 import UserDB.AppDataBaseUser;
 import UserDB.User;
 import UserDB.UserDAO;
@@ -29,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     Button createButton;
 
     UserDAO userDAO;
+    PlanetDAO planetDAO;
+    SolarSystemDAO solarSystemDAO;
+    GalaxyDAO galaxyDAO;
 
     User user;
 
@@ -46,8 +55,15 @@ public class MainActivity extends AppCompatActivity {
         createButton = mainBinding.buttonCreate;
         userDAO = Room.databaseBuilder(this, AppDataBaseUser.class, AppDataBaseUser.DATABASE_NAME)
                 .allowMainThreadQueries().build().UserDAO();
+        planetDAO = Room.databaseBuilder(this, AppDataBaseSpace.class, AppDataBaseSpace.DATABASE_NAME)
+                .allowMainThreadQueries().build().PlanetDAO();
+        solarSystemDAO = Room.databaseBuilder(this, AppDataBaseSpace.class, AppDataBaseSpace.DATABASE_NAME)
+                .allowMainThreadQueries().build().SolarSystemDAO();
+        galaxyDAO = Room.databaseBuilder(this, AppDataBaseSpace.class, AppDataBaseSpace.DATABASE_NAME)
+                .allowMainThreadQueries().build().GalaxyDAO();
 
         addUser();
+        addSpaceObjects();
 
 
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +114,16 @@ public class MainActivity extends AppCompatActivity {
 
         if (userDAO.getUserByName("admin2").isEmpty()){
             userDAO.Insert(new User("admin2", "admin2", 0, 1));
+        }
+    }
+
+    void addSpaceObjects(){
+        if (solarSystemDAO.getSolarSystemByName("Sol").isEmpty()){
+            solarSystemDAO.Insert(new SolarSystem("Sol", "Unknown",  0));
+        }
+
+        if (galaxyDAO.getGalaxyByName("Milky Way").isEmpty()){
+            galaxyDAO.Insert(new Galaxy("Milky Way", "Unknown"));
         }
     }
 }

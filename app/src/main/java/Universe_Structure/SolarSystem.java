@@ -1,8 +1,7 @@
 package Universe_Structure;
 
 import androidx.room.Entity;
-
-import java.util.ArrayList;
+import androidx.room.PrimaryKey;
 
 import Universe_DB.AppDataBaseSpace;
 
@@ -10,47 +9,59 @@ import Universe_DB.AppDataBaseSpace;
 public class SolarSystem extends SpaceObject{
 
     //Variables
-    private ArrayList<Planet> Planets;
-    private Galaxy galaxy;
-    private int numberOfPlanets;
+    @PrimaryKey(autoGenerate = true)
+    private int solarSystemId;
+
+    private int galaxy;
+    /*private int numberOfPlanets;
     String typeOfStar;
+    private ArrayList<Planet> Planets;*/
+
 
     //Constructors
-    SolarSystem(){
-        new SolarSystem("", "Unknown", new Galaxy());
+    public SolarSystem(){
+        new SolarSystem("", "Unknown",  0);
     }
 
-    SolarSystem(String name,String discoverer, Galaxy galaxy){
+    public SolarSystem(String name, String discoverer, int galaxy){
         super(name, discoverer);
-        this.Planets = new ArrayList<>();
+        //this.Planets = new ArrayList<>();
         this.galaxy = galaxy;
     }
 
 
     //Methods
 
-    void addPlanet(Planet planet){
+    /*void addPlanet(Planet planet){
         Planets.add(planet);
-    }
+    }*/
 
 
 
 
     //Getters and Setters
 
-    public ArrayList<Planet> getPlanets() {
+    public int getGalaxy() {
+        return galaxy;
+    }
+
+    public void setGalaxy(int galaxy) {
+        this.galaxy = galaxy;
+    }
+
+    public int getSolarSystemId() {
+        return solarSystemId;
+    }
+
+    public void setSolarSystemId(int solarSystemId) {
+        this.solarSystemId = solarSystemId;
+    }
+
+    /*public ArrayList<Planet> getPlanets() {
         return Planets;
     }
 
     public void setPlanets(ArrayList<Planet> planets) {
         Planets = planets;
-    }
-
-    public Galaxy getGalaxy() {
-        return galaxy;
-    }
-
-    public void setGalaxy(Galaxy galaxy) {
-        this.galaxy = galaxy;
-    }
+    }*/
 }

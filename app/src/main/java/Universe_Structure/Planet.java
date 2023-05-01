@@ -15,20 +15,20 @@ public class Planet extends SpaceObject{
 
     private String Population;
     private String Climate;
-    private int solarSystemId;
+    /*private int solarSystemId;
     private int galaxyId;
     private boolean isGoldyLoxZone;
     private double distanceFromStar;
     private double distanceFromGalaxyCenter;
-    private SolarSystem currentSystem;
+    private SolarSystem currentSystem;*/
 
 
     //Constructors
-    Planet(){
+    public Planet(){
         new Planet("", "", "", "");
     }
 
-    Planet(String name, String discoverer, String population, String climate){
+    public Planet(String name, String discoverer, String population, String climate){
         super(name, discoverer);
         this.Population = population;
         this.Climate = climate;
@@ -53,7 +53,7 @@ public class Planet extends SpaceObject{
         this.planetName = planetName;
     }
 
-    public int getSolarSystemId() {
+    /*public int getSolarSystemId() {
         return solarSystemId;
     }
 
@@ -103,7 +103,7 @@ public class Planet extends SpaceObject{
 
     public void setDistanceFromGalaxyCenter(int distanceFromGalaxyCenter) {
         this.distanceFromGalaxyCenter = distanceFromGalaxyCenter;
-    }
+    }*/
 
     public String getPopulation() {
         return Population;

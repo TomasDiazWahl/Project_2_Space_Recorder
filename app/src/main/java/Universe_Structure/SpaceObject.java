@@ -1,15 +1,6 @@
 package Universe_Structure;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
-import Universe_DB.AppDataBaseSpace;
-
-@Entity(tableName = AppDataBaseSpace.DATABASE_TABLE)
 public abstract class SpaceObject {
-
-    @PrimaryKey(autoGenerate = true)
-    private int SpaceObjectId;
     public String Name;
     public String Discoverer;
     private String Kind;
@@ -58,13 +49,5 @@ public abstract class SpaceObject {
 
     public void setKind(String kind) {
         Kind = kind;
-    }
-
-    public int getSpaceObjectId() {
-        return SpaceObjectId;
-    }
-
-    public void setSpaceObjectId(int spaceObjectId) {
-        SpaceObjectId = spaceObjectId;
     }
 }

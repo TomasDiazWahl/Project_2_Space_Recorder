@@ -6,18 +6,21 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import Universe_Structure.SpaceObject;
+import Universe_Structure.Galaxy;
+import Universe_Structure.Planet;
+import Universe_Structure.SolarSystem;
 
-@Database(entities = {SpaceObject.class}, version = 1)
+@Database(entities = {Planet.class, SolarSystem.class, Galaxy.class}, version = 1)
 public abstract class AppDataBaseSpace extends RoomDatabase {
     public static final String DATABASE_NAME = "SpaceObject.db";
-    public static final String DATABASE_TABLE = "SpaceObject_table";
     public static final String PLANET_TABLE =  "planet_table";
     public static final String SOLAR_SYSTEM_TABLE = "solar_system_table";
     public static final String GALAXY_TABLE = "galaxy_table";
     private static volatile AppDataBaseSpace instance;
     private static final Object LOCK = new Object();
-    public abstract SpaceObjectDAO GalaxyDAO();
+    public abstract GalaxyDAO GalaxyDAO();
+    public abstract SolarSystemDAO SolarSystemDAO();
+    public abstract PlanetDAO PlanetDAO();
 
     public static AppDataBaseSpace getInstance(Context context){
         if (instance == null){

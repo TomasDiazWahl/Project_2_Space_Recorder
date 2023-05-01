@@ -1,8 +1,7 @@
 package Universe_Structure;
 
 import androidx.room.Entity;
-
-import java.util.ArrayList;
+import androidx.room.PrimaryKey;
 
 import Universe_DB.AppDataBaseSpace;
 
@@ -10,24 +9,26 @@ import Universe_DB.AppDataBaseSpace;
 public class Galaxy extends SpaceObject{
 
     //Variables
-    private ArrayList<SolarSystem> SolarSystems;
+    @PrimaryKey(autoGenerate = true)
+    private int galaxyId;
+    //private ArrayList<SolarSystem> SolarSystems;
 
 
 
     //Constructors
-    Galaxy(){
+    public Galaxy(){
         new Galaxy("", "Unknown");
     }
 
-    Galaxy(String name, String discoverer){
+    public Galaxy(String name, String discoverer){
         super(name, discoverer);
-        this.SolarSystems = new ArrayList<>();
+        //this.SolarSystems = new ArrayList<>();
     }
 
 
 
     //Methods
-    void addSolarSystem(SolarSystem solarSystem){
+    /*void addSolarSystem(SolarSystem solarSystem){
         SolarSystems.add(solarSystem);
     }
 
@@ -41,5 +42,15 @@ public class Galaxy extends SpaceObject{
 
     public void setSolarSystems(ArrayList<SolarSystem> solarSystems) {
         SolarSystems = solarSystems;
+    }*/
+
+    //Getters and Setters
+
+    public int getGalaxyId() {
+        return galaxyId;
+    }
+
+    public void setGalaxyId(int galaxyId) {
+        this.galaxyId = galaxyId;
     }
 }
