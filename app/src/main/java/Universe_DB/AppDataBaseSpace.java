@@ -12,6 +12,9 @@ import Universe_Structure.SpaceObject;
 public abstract class AppDataBaseSpace extends RoomDatabase {
     public static final String DATABASE_NAME = "SpaceObject.db";
     public static final String DATABASE_TABLE = "SpaceObject_table";
+    public static final String PLANET_TABLE =  "planet_table";
+    public static final String SOLAR_SYSTEM_TABLE = "solar_system_table";
+    public static final String GALAXY_TABLE = "galaxy_table";
     private static volatile AppDataBaseSpace instance;
     private static final Object LOCK = new Object();
     public abstract SpaceObjectDAO GalaxyDAO();

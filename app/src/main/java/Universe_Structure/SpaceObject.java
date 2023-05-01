@@ -10,10 +10,8 @@ public abstract class SpaceObject {
 
     @PrimaryKey(autoGenerate = true)
     private int SpaceObjectId;
-
     public String Name;
     public String Discoverer;
-
     private String Kind;
 
 

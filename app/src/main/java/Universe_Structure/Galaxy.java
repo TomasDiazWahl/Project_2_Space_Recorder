@@ -4,7 +4,9 @@ import androidx.room.Entity;
 
 import java.util.ArrayList;
 
-@Entity
+import Universe_DB.AppDataBaseSpace;
+
+@Entity(tableName = AppDataBaseSpace.GALAXY_TABLE)
 public class Galaxy extends SpaceObject{
 
     //Variables

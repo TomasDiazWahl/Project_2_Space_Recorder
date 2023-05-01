@@ -6,8 +6,13 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
+
+import Utils.ArrayToStringConverter;
 
 @Database(entities = {User.class}, version = 1)
+@TypeConverters({ArrayToStringConverter.class})
 public abstract class AppDataBaseUser extends RoomDatabase {
     public static final String DATABASE_NAME = "User.db";
     public static final String DATABASE_TABLE = "User_table";

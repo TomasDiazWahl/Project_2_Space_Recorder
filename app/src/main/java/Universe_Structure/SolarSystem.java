@@ -1,12 +1,19 @@
 package Universe_Structure;
 
+import androidx.room.Entity;
+
 import java.util.ArrayList;
 
+import Universe_DB.AppDataBaseSpace;
+
+@Entity(tableName = AppDataBaseSpace.SOLAR_SYSTEM_TABLE)
 public class SolarSystem extends SpaceObject{
 
     //Variables
     private ArrayList<Planet> Planets;
     private Galaxy galaxy;
+    private int numberOfPlanets;
+    String typeOfStar;
 
     //Constructors
     SolarSystem(){
@@ -18,8 +25,6 @@ public class SolarSystem extends SpaceObject{
         this.Planets = new ArrayList<>();
         this.galaxy = galaxy;
     }
-
-
 
 
     //Methods

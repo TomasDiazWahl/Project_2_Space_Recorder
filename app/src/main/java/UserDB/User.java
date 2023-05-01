@@ -3,6 +3,8 @@ package UserDB;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.ArrayList;
+
 @Entity(tableName = AppDataBaseUser.DATABASE_TABLE)
 public class User {
 
@@ -12,8 +14,10 @@ public class User {
     String Name;
     private String Password;
     int Age;
-
     int isAdmin;
+    ArrayList<String> planets;
+    ArrayList<String> solarSystems;
+    ArrayList<String> galaxies;
 
 
 
@@ -28,10 +32,36 @@ public class User {
         this.Password = password;
         this.Age = age;
         this.isAdmin = admin;
+        this.planets = new ArrayList<>();
+        this.solarSystems = new ArrayList<>();
+        this.galaxies = new ArrayList<>();
     }
 
     //Getters and Setters
 
+    public ArrayList<String> getPlanets() {
+        return planets;
+    }
+
+    public void setPlanets(ArrayList<String> planets) {
+        this.planets = planets;
+    }
+
+    public ArrayList<String> getSolarSystems() {
+        return solarSystems;
+    }
+
+    public void setSolarSystems(ArrayList<String> solarSystems) {
+        this.solarSystems = solarSystems;
+    }
+
+    public ArrayList<String> getGalaxies() {
+        return galaxies;
+    }
+
+    public void setGalaxies(ArrayList<String> galaxies) {
+        this.galaxies = galaxies;
+    }
 
     public String getName() {
         return Name;
