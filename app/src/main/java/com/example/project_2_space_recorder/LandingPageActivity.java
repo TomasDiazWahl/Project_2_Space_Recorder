@@ -61,6 +61,7 @@ public class LandingPageActivity extends AppCompatActivity {
                 startActivity(AdminMenuActivity.getIntent(getApplicationContext(), USERID));
             }
         });
+
     }
 
 
