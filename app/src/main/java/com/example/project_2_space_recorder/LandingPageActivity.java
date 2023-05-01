@@ -54,6 +54,13 @@ public class LandingPageActivity extends AppCompatActivity {
                 startActivity(ProfileActivity.getIntent(getApplicationContext(), USERID));
             }
         });
+
+        adminButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(AdminMenuActivity.getIntent(getApplicationContext(), USERID));
+            }
+        });
     }
 
 

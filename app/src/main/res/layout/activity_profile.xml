@@ -5,14 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_corner"
+        android:orientation="vertical"
+        android:outlineSpotShadowColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/YourProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="@string/Profile"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -23,9 +33,10 @@
         android:id="@+id/arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="36dp"
         android:gravity="center"
         android:text="back"
+        android:textColor="@color/lightGrey"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@id/YourProfile"
         app:layout_constraintHorizontal_bias="0.421"
@@ -53,7 +64,7 @@
         android:gravity="center"
         android:text="@string/edit_text_username"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +90,7 @@
         android:gravity="center"
         android:text="Age"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +100,7 @@
         android:id="@+id/EditProfileButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="25dp"
         android:gravity="center"
         android:text="Edit Profile"
         android:textColor="@color/black"
@@ -99,5 +110,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

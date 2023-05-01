@@ -72,7 +72,7 @@ public class EditProfileActivity extends AppCompatActivity {
         String pw2 = password2.getText().toString();
 
         //Taken username
-        if (!un.equals("") && !userDAO.getUserByName(un).isEmpty()){
+        if (!un.equals("") && !un.equals(USER.getName())&& !userDAO.getUserByName(un).isEmpty()){
             System.out.println("ok1");
             return false;
         }
@@ -107,7 +107,12 @@ public class EditProfileActivity extends AppCompatActivity {
         username = mainBinding.UsernameEdit;
         age = mainBinding.AgeDisplay;
         back = mainBinding.arrow;
+        password = mainBinding.PasswordDisplay;
+        password2 = mainBinding.Password2Display;
         confirmChangesButton = mainBinding.confirmChangesButton;
+
+        username.setText(USER.getName());
+        age.setText(String.valueOf(USER.getAge()));
     }
 
     void setupUser(){

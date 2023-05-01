@@ -35,5 +35,6 @@
     <string name="Note">Note: You may leave some fields blanks</string>
     <string name="back">back</string>
     <string name="button_search_the_universe">Search The Universe</string>
+    <string name="admin_menu">Admin Menu</string>
 
 </resources>
