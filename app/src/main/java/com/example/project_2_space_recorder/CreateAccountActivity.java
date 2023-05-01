@@ -41,8 +41,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         password2 = mainBinding.editTextReenterPassword;
         createButton = mainBinding.buttonCreateAccount;
 
-        userDAO = Room.databaseBuilder(this, AppDataBaseUser.class, AppDataBaseUser.DATABASE_NAME)
-                .allowMainThreadQueries().build().UserDAO();
+        userDAO = AppDataBaseUser.getInstance(getApplicationContext()).UserDAO();
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override

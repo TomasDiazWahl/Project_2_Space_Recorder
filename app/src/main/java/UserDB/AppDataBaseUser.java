@@ -24,7 +24,10 @@ public abstract class AppDataBaseUser extends RoomDatabase {
         if (instance == null){
             synchronized (LOCK){
                 if (instance == null){
-                    instance = Room.databaseBuilder(context.getApplicationContext(), AppDataBaseUser.class, DATABASE_NAME).build();
+                    instance = Room.databaseBuilder(context.getApplicationContext(), AppDataBaseUser.class, DATABASE_NAME)
+                            .allowMainThreadQueries()
+                            .fallbackToDestructiveMigration()
+                            .build();
                 }
             }
         }
