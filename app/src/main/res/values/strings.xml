@@ -36,5 +36,8 @@
     <string name="back">back</string>
     <string name="button_search_the_universe">Search The Universe</string>
     <string name="admin_menu">Admin Menu</string>
+    <string name="discovered_planet_message">You Have Discovered A New Planet!</string>
+    <string name="enter_planet_name">Enter Planet Name</string>
+    <string name="discovered_solar_system">You Have Discovered a New Solar System!</string>
 
 </resources>

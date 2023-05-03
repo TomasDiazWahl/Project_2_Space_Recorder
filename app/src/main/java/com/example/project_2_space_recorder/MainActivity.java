@@ -53,14 +53,10 @@ public class MainActivity extends AppCompatActivity {
         password = mainBinding.editText;
         loginButton = mainBinding.buttonLogIn;
         createButton = mainBinding.buttonCreate;
-        userDAO = Room.databaseBuilder(this, AppDataBaseUser.class, AppDataBaseUser.DATABASE_NAME)
-                .allowMainThreadQueries().build().UserDAO();
-        planetDAO = Room.databaseBuilder(this, AppDataBaseSpace.class, AppDataBaseSpace.DATABASE_NAME)
-                .allowMainThreadQueries().build().PlanetDAO();
-        solarSystemDAO = Room.databaseBuilder(this, AppDataBaseSpace.class, AppDataBaseSpace.DATABASE_NAME)
-                .allowMainThreadQueries().build().SolarSystemDAO();
-        galaxyDAO = Room.databaseBuilder(this, AppDataBaseSpace.class, AppDataBaseSpace.DATABASE_NAME)
-                .allowMainThreadQueries().build().GalaxyDAO();
+        userDAO = AppDataBaseUser.getInstance(getApplicationContext()).UserDAO();
+        planetDAO = AppDataBaseSpace.getInstance(getApplicationContext()).PlanetDAO();
+        solarSystemDAO = AppDataBaseSpace.getInstance(getApplicationContext()).SolarSystemDAO();
+        galaxyDAO = AppDataBaseSpace.getInstance(getApplicationContext()).GalaxyDAO();
 
         addUser();
         addSpaceObjects();

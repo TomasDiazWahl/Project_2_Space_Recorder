@@ -35,6 +35,15 @@
         <activity
             android:name=".AdminMenuActivity"
             android:exported="true"/>
+        <activity
+            android:name=".ExploreActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".CreateNewPlanetActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".CreateNewSolarSystemActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

@@ -31,12 +31,8 @@ public class Search extends AppCompatActivity implements SearchView.OnQueryTextL
         // initialise ListView with id
         listView = findViewById(R.id.listView);
 
-
-
         mainBinding = ActivitySearchBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
-
-
 
     }
 

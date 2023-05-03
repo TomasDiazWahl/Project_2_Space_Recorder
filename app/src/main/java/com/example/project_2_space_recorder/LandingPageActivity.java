@@ -12,6 +12,7 @@ import androidx.room.Room;
 
 import com.example.project_2_space_recorder.databinding.ActivityLandingPageBinding;
 
+import Universe_DB.AppDataBaseSpace;
 import UserDB.AppDataBaseUser;
 import UserDB.User;
 import UserDB.UserDAO;
@@ -29,6 +30,7 @@ public class LandingPageActivity extends AppCompatActivity {
     TextView planetID;
     Button adminButton;
     Button logOutButton;
+    Button exploreButton;
 
 
 
@@ -62,6 +64,13 @@ public class LandingPageActivity extends AppCompatActivity {
             }
         });
 
+        exploreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(ExploreActivity.getIntent(getApplicationContext(), USERID));
+            }
+        });
+
     }
 
 
@@ -70,6 +79,7 @@ public class LandingPageActivity extends AppCompatActivity {
         planetID = mainBinding.planetId;
         adminButton = mainBinding.admin;
         logOutButton = mainBinding.buttonLogOut;
+        exploreButton = mainBinding.buttonExplore;
 
         profileButton.setText(USER.getName().substring(0, 1));
 
@@ -79,8 +89,7 @@ public class LandingPageActivity extends AppCompatActivity {
     }
 
     void setupUser(){
-        userDAO = Room.databaseBuilder(this, AppDataBaseUser.class, AppDataBaseUser.DATABASE_NAME)
-                .allowMainThreadQueries().build().UserDAO();
+        userDAO = AppDataBaseUser.getInstance(getApplicationContext()).UserDAO();
         USERID = getIntent().getIntExtra(idGetter, 0);
         USER = userDAO.getUserById(USERID).get(0);
         System.out.println("LandingPage " + USER);
