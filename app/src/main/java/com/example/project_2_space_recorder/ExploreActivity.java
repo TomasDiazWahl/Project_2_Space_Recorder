@@ -50,6 +50,14 @@ public class ExploreActivity extends AppCompatActivity {
             }
         });
 
+        wormHole.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = CreateNewGalaxyActivity.getIntent(getApplicationContext(), USERID);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public static Intent getIntent(Context context, int userID){

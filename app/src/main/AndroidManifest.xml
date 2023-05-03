@@ -44,6 +44,9 @@
         <activity
             android:name=".CreateNewSolarSystemActivity"
             android:exported="true"/>
+        <activity
+            android:name=".CreateNewGalaxyActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

@@ -3,18 +3,17 @@ package com.example.project_2_space_recorder;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.project_2_space_recorder.databinding.ActivityCreateGalaxyBinding;
-import com.example.project_2_space_recorder.databinding.ActivityCreatePlanetBinding;
-import com.example.project_2_space_recorder.databinding.ActivityExploreBinding;
+import com.example.project_2_space_recorder.databinding.ActivityCreateSolarSystemBinding;
+
 import UserDB.AppDataBaseUser;
 import UserDB.User;
 import UserDB.UserDAO;
 
-
-public class CreateNewPlanetActivity extends AppCompatActivity {
+public class CreateNewGalaxyActivity extends AppCompatActivity {
     ActivityCreateGalaxyBinding mainBinding;
     private static final String idGetter = "LandingPage.userID";
 
@@ -29,7 +28,7 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
     }
 
     public static Intent getIntent(Context context, int userID){
-        Intent intent = new Intent(context, com.example.project_2_space_recorder.CreateNewPlanetActivity.class);
+        Intent intent = new Intent(context, com.example.project_2_space_recorder.CreateNewGalaxyActivity.class);
         intent.putExtra(idGetter, userID);
         return intent;
     }
