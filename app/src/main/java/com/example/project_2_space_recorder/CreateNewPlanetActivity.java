@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.project_2_space_recorder.databinding.ActivityCreateGalaxyBinding;
@@ -15,17 +17,25 @@ import UserDB.UserDAO;
 
 
 public class CreateNewPlanetActivity extends AppCompatActivity {
-    ActivityCreateGalaxyBinding mainBinding;
+    ActivityCreatePlanetBinding mainBinding;
     private static final String idGetter = "LandingPage.userID";
 
     int USERID;
     User USER;
     UserDAO userDAO;
+    Button backButton;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_account);
         setupUser();
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(ExploreActivity.getIntent(getApplicationContext(), USERID));
+            }
+        });
     }
 
     public static Intent getIntent(Context context, int userID){
@@ -35,9 +45,9 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
     }
 
     void setupVariables(){
-        mainBinding = ActivityCreateGalaxyBinding.inflate(getLayoutInflater());
+        mainBinding = ActivityCreatePlanetBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
-
+        backButton = mainBinding.buttonBack;
     }
 
     void setupUser(){

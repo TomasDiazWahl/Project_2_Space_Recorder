@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.project_2_space_recorder.databinding.ActivityLandingPageBinding;
 
+import java.util.List;
+
+import Universe_Structure.SpaceObject;
 import UserDB.AppDataBaseUser;
 import UserDB.User;
 import UserDB.UserDAO;
@@ -30,9 +33,9 @@ public class LandingPageActivity extends AppCompatActivity {
     Button logOutButton;
     Button exploreButton;
 
+    List<String> spaceObjectImages;
 
-
-
+    SpaceObject objectToDisplay;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +96,7 @@ public class LandingPageActivity extends AppCompatActivity {
         USER = userDAO.getUserById(USERID).get(0);
         setupVariables();
     }
+
 
     public static Intent getIntent(Context context, int userID){
         Intent intent = new Intent(context, LandingPageActivity.class);

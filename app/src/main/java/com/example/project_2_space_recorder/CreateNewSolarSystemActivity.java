@@ -3,6 +3,8 @@ package com.example.project_2_space_recorder;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,11 +22,19 @@ public class CreateNewSolarSystemActivity extends AppCompatActivity {
     int USERID;
     User USER;
     UserDAO userDAO;
+    Button backButton;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_account);
         setupUser();
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(ExploreActivity.getIntent(getApplicationContext(), USERID));
+            }
+        });
     }
 
     public static Intent getIntent(Context context, int userID){
@@ -37,6 +47,7 @@ public class CreateNewSolarSystemActivity extends AppCompatActivity {
     void setupVariables(){
         mainBinding = ActivityCreateSolarSystemBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
+        backButton = mainBinding.buttonBack;
 
     }
 
