@@ -21,15 +21,9 @@ public class AdminMenuActivity extends AppCompatActivity {
     int USERID;
     private static final String idGetter = "LandingPage.userID";
     User USER;
-
     UserDAO userDAO;
-
     ActivityAdminmenuBinding mainBinding;
     TextView back;
-
-
-
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,8 +52,6 @@ public class AdminMenuActivity extends AppCompatActivity {
         USER = userDAO.getUserById(USERID).get(0);
         setupVariables();
     }
-
-
 
     public static Intent getIntent(Context context, int userID){
         Intent intent = new Intent(context, com.example.project_2_space_recorder.AdminMenuActivity.class);

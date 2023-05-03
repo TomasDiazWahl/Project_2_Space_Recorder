@@ -41,5 +41,6 @@
     <string name="discovered_solar_system">You Have Discovered a New Solar System!</string>
     <string name="you_have_discovered_a_new_galaxy">You Have Discovered a New Galaxy!</string>
     <string name="back_button">BACK</string>
+    <string name="submit">Submit</string>
 
 </resources>
