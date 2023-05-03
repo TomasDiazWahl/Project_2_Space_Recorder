@@ -14,4 +14,5 @@
     <color name="darkBlue">#0000FF</color>
     <color name="poorpl">#8800FF</color>
     <color name="lightGrey">#bbbbbb</color>
+    <color name="invisible">#00000000</color>
 </resources>

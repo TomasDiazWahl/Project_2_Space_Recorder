@@ -3,6 +3,7 @@ package com.example.project_2_space_recorder;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -30,6 +31,11 @@ public class AdminMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         setupUser();
 
+        int orientation = this.getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE){
+            startActivity(SuperSecretActivity.getIntent(getApplicationContext(), USERID));
+        }
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,6 +43,7 @@ public class AdminMenuActivity extends AppCompatActivity {
             }
         });
     }
+
 
     @SuppressLint("SetTextI18n")
     void setupVariables(){

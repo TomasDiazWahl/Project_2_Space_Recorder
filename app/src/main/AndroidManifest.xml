@@ -47,6 +47,9 @@
         <activity
             android:name=".CreateNewGalaxyActivity"
             android:exported="true"/>
+        <activity
+            android:name=".SuperSecretActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
