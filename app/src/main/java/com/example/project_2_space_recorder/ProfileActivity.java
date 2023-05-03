@@ -1,6 +1,5 @@
 package com.example.project_2_space_recorder;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,8 +37,6 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        mainBinding = ActivityProfileBinding.inflate(getLayoutInflater());
-        setContentView(mainBinding.getRoot());
         setupUser();
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -57,8 +54,10 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    @SuppressLint("SetTextI18n")
     void setupVariables(){
+        mainBinding = ActivityProfileBinding.inflate(getLayoutInflater());
+        setContentView(mainBinding.getRoot());
+
         username = mainBinding.UsernameEdit;
         age = mainBinding.AgeDisplay;
         back = mainBinding.arrow;

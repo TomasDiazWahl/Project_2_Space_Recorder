@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import com.example.project_2_space_recorder.databinding.CreateAccountBinding;
 
@@ -33,15 +32,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_account);
 
-        mainBinding = CreateAccountBinding.inflate(getLayoutInflater());
-        setContentView(mainBinding.getRoot());
-
-        username = mainBinding.editTextCrtUsername;
-        password = mainBinding.editTextCrtPassword;
-        password2 = mainBinding.editTextReenterPassword;
-        createButton = mainBinding.buttonCreateAccount;
-
-        userDAO = AppDataBaseUser.getInstance(getApplicationContext()).UserDAO();
+        setupVariables();
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +68,19 @@ public class CreateAccountActivity extends AppCompatActivity {
         t.setText("Username already taken");
         t.show();
         return false;
+    }
+
+
+    void setupVariables(){
+        mainBinding = CreateAccountBinding.inflate(getLayoutInflater());
+        setContentView(mainBinding.getRoot());
+
+        username = mainBinding.editTextCrtUsername;
+        password = mainBinding.editTextCrtPassword;
+        password2 = mainBinding.editTextReenterPassword;
+        createButton = mainBinding.buttonCreateAccount;
+
+        userDAO = AppDataBaseUser.getInstance(getApplicationContext()).UserDAO();
     }
 
     public static Intent getIntent(Context context){

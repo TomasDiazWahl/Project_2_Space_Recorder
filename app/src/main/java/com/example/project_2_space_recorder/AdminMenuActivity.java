@@ -34,8 +34,6 @@ public class AdminMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        mainBinding = ActivityAdminmenuBinding.inflate(getLayoutInflater());
-        setContentView(mainBinding.getRoot());
         setupUser();
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +46,8 @@ public class AdminMenuActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     void setupVariables(){
+        mainBinding = ActivityAdminmenuBinding.inflate(getLayoutInflater());
+        setContentView(mainBinding.getRoot());
         back = mainBinding.arrow;
     }
 
@@ -56,8 +56,6 @@ public class AdminMenuActivity extends AppCompatActivity {
                 .allowMainThreadQueries().build().UserDAO();
         USERID = getIntent().getIntExtra(idGetter, 0);
         USER = userDAO.getUserById(USERID).get(0);
-
-
         setupVariables();
     }
 

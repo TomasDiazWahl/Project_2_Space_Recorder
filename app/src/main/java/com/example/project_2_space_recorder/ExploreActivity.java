@@ -6,12 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import com.example.project_2_space_recorder.databinding.ActivityExploreBinding;
-import com.example.project_2_space_recorder.databinding.CreateAccountBinding;
 
 import UserDB.AppDataBaseUser;
 import UserDB.User;
@@ -69,6 +66,7 @@ public class ExploreActivity extends AppCompatActivity {
     void setupVariables(){
         mainBinding = ActivityExploreBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
+
         findNewPlanet = mainBinding.findNewPlanet;
         findNewSolarSystem = mainBinding.findNewSolarSystem;
         wormHole = mainBinding.jumpThroughWormhole;

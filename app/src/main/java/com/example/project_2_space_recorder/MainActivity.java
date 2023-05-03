@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import com.example.project_2_space_recorder.databinding.ActivityMainBinding;
 
@@ -46,17 +45,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(mainBinding.getRoot());
-
-        username = mainBinding.editTextUsername;
-        password = mainBinding.editText;
-        loginButton = mainBinding.buttonLogIn;
-        createButton = mainBinding.buttonCreate;
-        userDAO = AppDataBaseUser.getInstance(getApplicationContext()).UserDAO();
-        planetDAO = AppDataBaseSpace.getInstance(getApplicationContext()).PlanetDAO();
-        solarSystemDAO = AppDataBaseSpace.getInstance(getApplicationContext()).SolarSystemDAO();
-        galaxyDAO = AppDataBaseSpace.getInstance(getApplicationContext()).GalaxyDAO();
+        setupVariables();
 
         addUser();
         addSpaceObjects();
@@ -99,10 +88,6 @@ public class MainActivity extends AppCompatActivity {
         return user.getPassword().equals(pw);
     }
 
-    public static Intent getIntent(Context context){
-        return new Intent(context, MainActivity.class);
-    }
-
     void addUser(){
         if (userDAO.getUserByName("testuser1").isEmpty()){
             userDAO.Insert(new User("testuser1", "testuser1", 0, 0));
@@ -121,5 +106,23 @@ public class MainActivity extends AppCompatActivity {
         if (galaxyDAO.getGalaxyByName("Milky Way").isEmpty()){
             galaxyDAO.Insert(new Galaxy("Milky Way", "Unknown"));
         }
+    }
+
+    void setupVariables(){
+        mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(mainBinding.getRoot());
+
+        username = mainBinding.editTextUsername;
+        password = mainBinding.editText;
+        loginButton = mainBinding.buttonLogIn;
+        createButton = mainBinding.buttonCreate;
+        userDAO = AppDataBaseUser.getInstance(getApplicationContext()).UserDAO();
+        planetDAO = AppDataBaseSpace.getInstance(getApplicationContext()).PlanetDAO();
+        solarSystemDAO = AppDataBaseSpace.getInstance(getApplicationContext()).SolarSystemDAO();
+        galaxyDAO = AppDataBaseSpace.getInstance(getApplicationContext()).GalaxyDAO();
+    }
+
+    public static Intent getIntent(Context context){
+        return new Intent(context, MainActivity.class);
     }
 }

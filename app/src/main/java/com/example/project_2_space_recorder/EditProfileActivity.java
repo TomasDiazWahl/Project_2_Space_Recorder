@@ -40,11 +40,7 @@ public class EditProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        mainBinding = ActivityEditprofileBinding.inflate(getLayoutInflater());
-        setContentView(mainBinding.getRoot());
         setupUser();
-        setupVariables();
-        System.out.println(USER);
 
         confirmChangesButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +100,9 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     void setupVariables(){
+        mainBinding = ActivityEditprofileBinding.inflate(getLayoutInflater());
+        setContentView(mainBinding.getRoot());
+
         username = mainBinding.UsernameEdit;
         age = mainBinding.AgeDisplay;
         back = mainBinding.arrow;
@@ -120,6 +119,8 @@ public class EditProfileActivity extends AppCompatActivity {
                 .allowMainThreadQueries().build().UserDAO();
         USERID = getIntent().getIntExtra(idGetter, 0);
         USER = userDAO.getUserById(USERID).get(0);
+
+        setupVariables();
     }
 
 

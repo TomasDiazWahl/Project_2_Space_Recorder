@@ -8,11 +8,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import com.example.project_2_space_recorder.databinding.ActivityLandingPageBinding;
 
-import Universe_DB.AppDataBaseSpace;
 import UserDB.AppDataBaseUser;
 import UserDB.User;
 import UserDB.UserDAO;
@@ -39,8 +37,6 @@ public class LandingPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
-        mainBinding = ActivityLandingPageBinding.inflate(getLayoutInflater());
-        setContentView(mainBinding.getRoot());
         setupUser();
 
         logOutButton.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +71,9 @@ public class LandingPageActivity extends AppCompatActivity {
 
 
     void setupVariables(){
+        mainBinding = ActivityLandingPageBinding.inflate(getLayoutInflater());
+        setContentView(mainBinding.getRoot());
+
         profileButton = mainBinding.buttonProfile;
         planetID = mainBinding.planetId;
         adminButton = mainBinding.admin;
@@ -92,7 +91,6 @@ public class LandingPageActivity extends AppCompatActivity {
         userDAO = AppDataBaseUser.getInstance(getApplicationContext()).UserDAO();
         USERID = getIntent().getIntExtra(idGetter, 0);
         USER = userDAO.getUserById(USERID).get(0);
-        System.out.println("LandingPage " + USER);
         setupVariables();
     }
 
