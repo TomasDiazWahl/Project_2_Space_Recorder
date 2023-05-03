@@ -33,6 +33,7 @@ public class CreateNewSolarSystemActivity extends AppCompatActivity {
         return intent;
     }
 
+
     void setupVariables(){
         mainBinding = ActivityCreateSolarSystemBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
