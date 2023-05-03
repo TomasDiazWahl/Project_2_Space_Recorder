@@ -2,11 +2,11 @@ package com.example.project_2_space_recorder;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,6 +23,7 @@ import Universe_Structure.SolarSystem;
 import UserDB.AppDataBaseUser;
 import UserDB.User;
 import UserDB.UserDAO;
+import Utils.Toaster;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,20 +49,24 @@ public class MainActivity extends AppCompatActivity {
         setupVariables();
 
         addUser();
-        addSpaceObjects();
 
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String text = "Login failed";
+                int color = Color.RED;
 
-                Toast t = new Toast(getApplicationContext());
-                t.setText("Invalid name or password");
                 if (login()){
-                    t.setText("Successfully logged in");
+                    addSpaceObjects();
+                    userDAO.Update(user);
+                    text = "Login successful";
+                    color = Color.GREEN;
+                    Toaster.showToast(getApplicationContext(), text, color);
                     startActivity(LandingPageActivity.getIntent(getApplicationContext(), user.getUserId()));
+                    return;
                 }
-                t.show();
+                Toaster.showToast(getApplicationContext(), text, color);
             }
         });
 
@@ -100,11 +105,13 @@ public class MainActivity extends AppCompatActivity {
 
     void addSpaceObjects(){
         if (solarSystemDAO.getSolarSystemByName("Sol").isEmpty()){
-            solarSystemDAO.Insert(new SolarSystem("Sol", "Unknown",  0));
+            SolarSystem s = new SolarSystem("Sol", "Unknown",  0);
+            solarSystemDAO.Insert(s);
         }
 
         if (galaxyDAO.getGalaxyByName("Milky Way").isEmpty()){
-            galaxyDAO.Insert(new Galaxy("Milky Way", "Unknown"));
+            Galaxy g = new Galaxy("Milky Way", "Unknown");
+            galaxyDAO.Insert(g);
         }
     }
 

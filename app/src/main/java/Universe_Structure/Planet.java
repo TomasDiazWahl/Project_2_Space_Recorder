@@ -11,8 +11,7 @@ public class Planet extends SpaceObject{
     //Variables
     @PrimaryKey(autoGenerate = true)
     private int planetId;
-    private String planetName;
-
+    private String user;
     private String Population;
     private String Climate;
     /*private int solarSystemId;
@@ -43,14 +42,6 @@ public class Planet extends SpaceObject{
 
     public void setPlanetId(int planetId) {
         this.planetId = planetId;
-    }
-
-    public String getPlanetName() {
-        return planetName;
-    }
-
-    public void setPlanetName(String planetName) {
-        this.planetName = planetName;
     }
 
     /*public int getSolarSystemId() {
@@ -119,5 +110,13 @@ public class Planet extends SpaceObject{
 
     public void setClimate(String climate) {
         Climate = climate;
+    }
+
+    public String getUser(){
+        return user;
+    }
+
+    public void setUser(String name){
+        user = name;
     }
 }

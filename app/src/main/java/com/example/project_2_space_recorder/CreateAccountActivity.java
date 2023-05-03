@@ -2,11 +2,11 @@ package com.example.project_2_space_recorder;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +15,7 @@ import com.example.project_2_space_recorder.databinding.CreateAccountBinding;
 import UserDB.AppDataBaseUser;
 import UserDB.User;
 import UserDB.UserDAO;
+import Utils.Toaster;
 
 public class CreateAccountActivity extends AppCompatActivity {
     
@@ -47,26 +48,24 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     boolean createUser(){
         String un = username.getText().toString();
-        Toast t = new Toast(getApplicationContext());
+        String text = "Username already taken";
 
         if (userDAO.getUserByName(un).isEmpty()){
             String pw = password.getText().toString();
             String pw2 = password2.getText().toString();
             if (!pw.equals("") && pw.equals(pw2)){
                 userDAO.Insert(new User(un, pw, 0, 0));
-                System.out.println("User Created");
-                t.setText("Successfully logged in");
-                t.show();
+                text = "User Created!";
+                Toaster.showToast(getApplicationContext(), text, Color.GREEN);
                 return true;
             }
             //Error: not same password
-            t.setText("Passwords are not the same");
-            t.show();
+            text = "Invalid password";
+            Toaster.showToast(getApplicationContext(), text, Color.RED);
             return false;
         }
         //Error: username taken
-        t.setText("Username already taken");
-        t.show();
+        Toaster.showToast(getApplicationContext(), text, Color.RED);
         return false;
     }
 

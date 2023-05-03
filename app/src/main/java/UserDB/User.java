@@ -37,6 +37,38 @@ public class User {
         this.galaxies = new ArrayList<>();
     }
 
+    //Methods
+
+    public void addPlanet(String id){
+        if (!planets.contains(id)){
+            planets.add(id);
+        }
+    }
+
+    public void addSolarSystem(String id){
+        if (!solarSystems.contains(id)){
+            solarSystems.add(id);
+        }
+    }
+
+    public void addGalaxy(String id){
+        if (!galaxies.contains(id)){
+            galaxies.add(id);
+        }
+    }
+
+    public boolean hasPlanet(String id){
+        return planets.contains(id);
+    }
+
+    public boolean hasSystem(String id){
+        return solarSystems.contains(id);
+    }
+
+    public boolean hasGalaxy(String id){
+        return galaxies.contains(id);
+    }
+
     //Getters and Setters
 
     public ArrayList<String> getPlanets() {
