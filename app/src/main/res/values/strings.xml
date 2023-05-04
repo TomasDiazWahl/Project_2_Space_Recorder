@@ -42,5 +42,7 @@
     <string name="you_have_discovered_a_new_galaxy">You Have Discovered a New Galaxy!</string>
     <string name="back_button">BACK</string>
     <string name="submit">Submit</string>
+    <string name="button_home">Home</string>
+    <string name="button_settings">Settings</string>
 
 </resources>

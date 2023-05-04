@@ -11,7 +11,7 @@ import androidx.room.TypeConverters;
 
 import Utils.ArrayToStringConverter;
 
-@Database(entities = {User.class}, version = 1)
+@Database(entities = {User.class}, version = 3)
 @TypeConverters({ArrayToStringConverter.class})
 public abstract class AppDataBaseUser extends RoomDatabase {
     public static final String DATABASE_NAME = "User.db";

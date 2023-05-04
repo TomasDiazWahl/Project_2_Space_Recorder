@@ -10,7 +10,7 @@ import Universe_Structure.Galaxy;
 import Universe_Structure.Planet;
 import Universe_Structure.SolarSystem;
 
-@Database(entities = {Planet.class, SolarSystem.class, Galaxy.class}, version = 1)
+@Database(entities = {Planet.class, SolarSystem.class, Galaxy.class}, version = 2)
 public abstract class AppDataBaseSpace extends RoomDatabase {
     public static final String DATABASE_NAME = "SpaceObject.db";
     public static final String PLANET_TABLE =  "planet_table";
