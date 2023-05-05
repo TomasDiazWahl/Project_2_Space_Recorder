@@ -50,6 +50,9 @@
         <activity
             android:name=".SuperSecretActivity"
             android:exported="true"/>
+        <activity
+            android:name=".UltraSuperSecretActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
