@@ -4,6 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import Universe_DB.AppDataBaseSpace;
+import Universe_DB.SolarSystemDAO;
 
 @Entity(tableName = AppDataBaseSpace.PLANET_TABLE)
 public class Planet extends SpaceObject{
@@ -11,15 +12,13 @@ public class Planet extends SpaceObject{
     //Variables
     @PrimaryKey(autoGenerate = true)
     private int planetId;
-    private String user;
     private String Population;
     private String Climate;
-    /*private int solarSystemId;
+    private int solarSystemId;
     private int galaxyId;
-    private boolean isGoldyLoxZone;
+    private boolean isGoldyLoxZone = false;
     private double distanceFromStar;
-    private double distanceFromGalaxyCenter;
-    private SolarSystem currentSystem;*/
+    SolarSystemDAO solarSystemDAO;
 
 
     //Constructors
@@ -44,7 +43,7 @@ public class Planet extends SpaceObject{
         this.planetId = planetId;
     }
 
-    /*public int getSolarSystemId() {
+    public int getSolarSystemId() {
         return solarSystemId;
     }
 
@@ -60,22 +59,6 @@ public class Planet extends SpaceObject{
         this.galaxyId = galaxyId;
     }
 
-    public boolean isGoldyLoxZone() {
-        String typeOfStar = currentSystem.typeOfStar;
-        if (typeOfStar.equals("brown dwarf")){
-            if(distanceFromStar < 0.3 && distanceFromStar > 0.01){
-                return true;
-            }
-        }
-        if (typeOfStar.equals("red dwarf")){
-            if(distanceFromStar > 0.3 && distanceFromStar < 10){
-                return true;
-            }
-        }
-
-        return isGoldyLoxZone;
-    }
-
     public void setGoldyLoxZone(boolean goldyLoxZone) {
         isGoldyLoxZone = goldyLoxZone;
     }
@@ -87,14 +70,6 @@ public class Planet extends SpaceObject{
     public void setDistanceFromStar(int distanceFromStar) {
         this.distanceFromStar = distanceFromStar;
     }
-
-    public double getDistanceFromGalaxyCenter() {
-        return distanceFromGalaxyCenter;
-    }
-
-    public void setDistanceFromGalaxyCenter(int distanceFromGalaxyCenter) {
-        this.distanceFromGalaxyCenter = distanceFromGalaxyCenter;
-    }*/
 
     public String getPopulation() {
         return Population;
@@ -110,13 +85,5 @@ public class Planet extends SpaceObject{
 
     public void setClimate(String climate) {
         Climate = climate;
-    }
-
-    public String getUser(){
-        return user;
-    }
-
-    public void setUser(String name){
-        user = name;
     }
 }
