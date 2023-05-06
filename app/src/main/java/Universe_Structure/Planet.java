@@ -11,7 +11,6 @@ public class Planet extends SpaceObject{
     //Variables
     @PrimaryKey(autoGenerate = true)
     private int planetId;
-    private String user;
     private String Population;
     private String Climate;
     /*private int solarSystemId;
@@ -110,13 +109,5 @@ public class Planet extends SpaceObject{
 
     public void setClimate(String climate) {
         Climate = climate;
-    }
-
-    public String getUser(){
-        return user;
-    }
-
-    public void setUser(String name){
-        user = name;
     }
 }

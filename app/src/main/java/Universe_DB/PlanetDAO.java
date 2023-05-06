@@ -30,4 +30,7 @@ public interface PlanetDAO {
 
     @Query("SELECT * FROM " + AppDataBaseSpace.PLANET_TABLE + " WHERE name = :PlanetName")
     List<Planet> getPlanetByName(String PlanetName);
+
+    @Query("SELECT * FROM " + AppDataBaseSpace.PLANET_TABLE + " WHERE discoverer = :user")
+    List<Planet> getPlanetByOwner(String user);
 }
