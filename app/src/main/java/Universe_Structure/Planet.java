@@ -4,7 +4,6 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import Universe_DB.AppDataBaseSpace;
-import Universe_DB.SolarSystemDAO;
 
 @Entity(tableName = AppDataBaseSpace.PLANET_TABLE)
 public class Planet extends SpaceObject{
@@ -18,7 +17,7 @@ public class Planet extends SpaceObject{
     private int galaxyId;
     private boolean isGoldyLoxZone = false;
     private double distanceFromStar;
-    SolarSystemDAO solarSystemDAO;
+    //SolarSystemDAO solarSystemDAO;
 
 
     //Constructors
@@ -57,6 +56,9 @@ public class Planet extends SpaceObject{
 
     public void setGalaxyId(int galaxyId) {
         this.galaxyId = galaxyId;
+    }
+    public boolean getIsGoldyLoxZone(){
+        return isGoldyLoxZone;
     }
 
     public void setGoldyLoxZone(boolean goldyLoxZone) {

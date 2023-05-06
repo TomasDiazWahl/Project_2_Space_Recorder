@@ -99,6 +99,14 @@ public class LandingPageActivity extends AppCompatActivity {
                 dialog.cancel();
             }
         });
+
+        dialogApply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updatePlanet();
+                dialog.cancel();
+            }
+        });
     }
 
     @Override
@@ -132,12 +140,14 @@ public class LandingPageActivity extends AppCompatActivity {
 
         dialog = new CreatePlanetDialog(LandingPageActivity.this);
         dialogPlanetName = dialog.findViewById(R.id.edit_text_name);
+        dialogPlanetName.setText(planet.getName());
         dialogApply = dialog.findViewById(R.id.button_apply);
         dialogCancel = dialog.findViewById(R.id.button_cancel);
 
         profileButton.setText(USER.getName().substring(0, 1));
         planetID.setText("ID: " + planet.getPlanetId());
         planetName.setText("Name: " + planet.getName());
+
 
         if (USER.getIsAdmin() == 1){
             adminButton.setVisibility(View.VISIBLE);
@@ -162,6 +172,12 @@ public class LandingPageActivity extends AppCompatActivity {
 
 
         setupVariables();
+    }
+
+    void updatePlanet(){
+        planet.Name = dialogPlanetName.getText().toString();
+        planetDAO.Update(planet);
+        planetName.setText("Name: " + planet.getName());
     }
 
 
