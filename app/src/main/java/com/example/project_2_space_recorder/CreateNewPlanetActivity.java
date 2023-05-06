@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.project_2_space_recorder.databinding.ActivityCreateGalaxyBinding;
 import com.example.project_2_space_recorder.databinding.ActivityCreatePlanetBinding;
 import com.example.project_2_space_recorder.databinding.ActivityExploreBinding;
+
+import Universe_DB.PlanetDAO;
 import UserDB.AppDataBaseUser;
 import UserDB.User;
 import UserDB.UserDAO;
@@ -25,7 +27,9 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
     int USERID;
     User USER;
     UserDAO userDAO;
+    PlanetDAO planetDAO;
     Button backButton;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

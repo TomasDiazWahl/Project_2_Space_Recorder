@@ -3,6 +3,8 @@ package Universe_Structure;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.ArrayList;
+
 import Universe_DB.AppDataBaseSpace;
 
 @Entity(tableName = AppDataBaseSpace.SOLAR_SYSTEM_TABLE)
@@ -11,11 +13,10 @@ public class SolarSystem extends SpaceObject{
     //Variables
     @PrimaryKey(autoGenerate = true)
     private int solarSystemId;
-
-    private int galaxy;
-    /*private int numberOfPlanets;
-    String typeOfStar;
-    private ArrayList<Planet> Planets;*/
+    private int galaxyId;
+    private boolean isGoldyLoxZone = false;
+    private String typeOfStar;
+    private double distanceFromGalaxyCenter;
 
 
     //Constructors
@@ -26,27 +27,41 @@ public class SolarSystem extends SpaceObject{
     public SolarSystem(String name, String discoverer, int galaxy){
         super(name, discoverer);
         //this.Planets = new ArrayList<>();
-        this.galaxy = galaxy;
+        this.galaxyId = galaxy;
+    }
+
+    public boolean determineGoldyLoxZone(Planet planet) {
+        if (this.getDistanceFromGalaxyCenter() < 33000 && this.getDistanceFromGalaxyCenter() > 13000){
+            if (this.typeOfStar.equals("dwarf star")){
+                if(planet.getDistanceFromStar() < 3 && planet.getDistanceFromStar() > 0.01){
+                    return true;
+                }
+            }
+            if (this.typeOfStar.equals("giant star")){
+                if(planet.getDistanceFromStar() > 10 && planet.getDistanceFromStar() < 100){
+                    return true;
+                }
+            }
+            if (this.typeOfStar.equals("super giant star")){
+                if(planet.getDistanceFromStar() > 80 && planet.getDistanceFromStar() < 1200){
+                    return true;
+                }
+            }
+            if (this.typeOfStar.equals("pulsar")){
+                System.out.println("TOO HOT FOR SURVIVAL");
+            }
+        }
+
+        return false;
     }
 
 
-    //Methods
-
-    /*void addPlanet(Planet planet){
-        Planets.add(planet);
-    }*/
-
-
-
-
-    //Getters and Setters
-
     public int getGalaxy() {
-        return galaxy;
+        return galaxyId;
     }
 
     public void setGalaxy(int galaxy) {
-        this.galaxy = galaxy;
+        this.galaxyId = galaxy;
     }
 
     public int getSolarSystemId() {
@@ -57,11 +72,35 @@ public class SolarSystem extends SpaceObject{
         this.solarSystemId = solarSystemId;
     }
 
-    /*public ArrayList<Planet> getPlanets() {
-        return Planets;
+    public int getGalaxyId() {
+        return galaxyId;
     }
 
-    public void setPlanets(ArrayList<Planet> planets) {
-        Planets = planets;
-    }*/
+    public void setGalaxyId(int galaxyId) {
+        this.galaxyId = galaxyId;
+    }
+
+    public boolean isGoldyLoxZone() {
+        return isGoldyLoxZone;
+    }
+
+    public void setGoldyLoxZone(boolean goldyLoxZone) {
+        isGoldyLoxZone = goldyLoxZone;
+    }
+
+    public String getTypeOfStar() {
+        return typeOfStar;
+    }
+
+    public void setTypeOfStar(String typeOfStar) {
+        this.typeOfStar = typeOfStar;
+    }
+
+    public double getDistanceFromGalaxyCenter() {
+        return distanceFromGalaxyCenter;
+    }
+
+    public void setDistanceFromGalaxyCenter(double distanceFromGalaxyCenter) {
+        this.distanceFromGalaxyCenter = distanceFromGalaxyCenter;
+    }
 }
