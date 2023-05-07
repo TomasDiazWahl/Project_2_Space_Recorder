@@ -51,5 +51,14 @@
     <string name="enter_text_here">Enter text here</string>
     <string name="Apply">Apply</string>
     <string name="enter_planet_name2">Enter Planet Name</string>
+    <string name="planet_name">Planet Name:</string>
+    <string name="enter_population_name">Enter Population name</string>
+    <string name="enter_distance_from_star2">Enter Distance from star</string>
+    <string name="distance_from_star_in_km">Distance from star (in AU)</string>
+    <string name="enter_planet_size">Enter Planet Size</string>
+    <string name="planet_size_in_km">Planet Size (in km)</string>
+    <string name="enter_climate_type">Enter Climate type</string>
+    <string name="planet_climate">Planet Climate</string>
+    <string name="planet_population">Planet Population</string>
 
 </resources>

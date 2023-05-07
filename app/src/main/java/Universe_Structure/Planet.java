@@ -14,10 +14,10 @@ public class Planet extends SpaceObject{
     private String Population;
     private String Climate;
     private int solarSystemId;
-    private int galaxyId;
     private boolean isGoldyLoxZone = false;
     private double distanceFromStar;
-    //SolarSystemDAO solarSystemDAO;
+
+    private double Size;
 
 
     //Constructors
@@ -25,10 +25,17 @@ public class Planet extends SpaceObject{
         new Planet("", "", "", "");
     }
 
+    public Planet(String name, String discoverer){
+        this(name, discoverer, "You", "Cool");
+    }
+
     public Planet(String name, String discoverer, String population, String climate){
         super(name, discoverer);
         this.Population = population;
         this.Climate = climate;
+        this.Size = 0;
+        this.distanceFromStar = 0;
+        this.solarSystemId = 0;
     }
 
     //Methods
@@ -50,13 +57,6 @@ public class Planet extends SpaceObject{
         this.solarSystemId = solarSystemId;
     }
 
-    public int getGalaxyId() {
-        return galaxyId;
-    }
-
-    public void setGalaxyId(int galaxyId) {
-        this.galaxyId = galaxyId;
-    }
     public boolean getIsGoldyLoxZone(){
         return isGoldyLoxZone;
     }
@@ -69,7 +69,7 @@ public class Planet extends SpaceObject{
         return distanceFromStar;
     }
 
-    public void setDistanceFromStar(int distanceFromStar) {
+    public void setDistanceFromStar(double distanceFromStar) {
         this.distanceFromStar = distanceFromStar;
     }
 
@@ -87,5 +87,12 @@ public class Planet extends SpaceObject{
 
     public void setClimate(String climate) {
         Climate = climate;
+    }
+    public double getSize() {
+        return Size;
+    }
+
+    public void setSize(double size) {
+        Size = size;
     }
 }

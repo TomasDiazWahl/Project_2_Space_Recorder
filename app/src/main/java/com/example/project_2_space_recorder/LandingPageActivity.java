@@ -1,5 +1,6 @@
 package com.example.project_2_space_recorder;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.project_2_space_recorder.databinding.ActivityLandingPageBinding;
+import com.example.project_2_space_recorder.databinding.CreatePlanetDialogBinding;
 
 import java.util.List;
 
@@ -49,7 +51,14 @@ public class LandingPageActivity extends AppCompatActivity {
     Menu menu;
 
     CreatePlanetDialog dialog;
+
+    CreatePlanetDialogBinding dialogBinding;
     EditText dialogPlanetName;
+    EditText dialogPlanetPopulation;
+    EditText dialogClimate;
+    EditText dialogSize;
+    EditText dialogDistance;
+    EditText dialogSystem;
     Button dialogApply;
     Button dialogCancel;
 
@@ -126,6 +135,7 @@ public class LandingPageActivity extends AppCompatActivity {
 
 
 
+    @SuppressLint("SetTextI18n")
     void setupVariables(){
         mainBinding = ActivityLandingPageBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
@@ -139,10 +149,22 @@ public class LandingPageActivity extends AppCompatActivity {
         editPlanetButton = mainBinding.buttonEditPlanet;
 
         dialog = new CreatePlanetDialog(LandingPageActivity.this);
+        dialogBinding = CreatePlanetDialogBinding.inflate(dialog.getLayoutInflater());
         dialogPlanetName = dialog.findViewById(R.id.edit_text_name);
         dialogPlanetName.setText(planet.getName());
+        dialogPlanetPopulation = dialog.findViewById(R.id.edit_text_population);
+        dialogPlanetPopulation.setText(planet.getPopulation());
+        dialogClimate = dialog.findViewById(R.id.edit_text_climate);
+        dialogClimate.setText(planet.getClimate());
+        dialogSize = dialog.findViewById(R.id.edit_text_size);
+        dialogSize.setText(planet.getSize() + "");
+        dialogDistance = dialog.findViewById(R.id.edit_text_distance);
+        dialogDistance.setText(planet.getDistanceFromStar() + "");
+        dialogSystem = dialog.findViewById(R.id.edit_text_system);
+        dialogSystem.setText(planet.getSolarSystemId() + "");
         dialogApply = dialog.findViewById(R.id.button_apply);
         dialogCancel = dialog.findViewById(R.id.button_cancel);
+
 
         profileButton.setText(USER.getName().substring(0, 1));
         planetID.setText("ID: " + planet.getPlanetId());
@@ -163,7 +185,7 @@ public class LandingPageActivity extends AppCompatActivity {
         List<Planet> p = planetDAO.getPlanetByOwner(USER.getName());
 
         if (p.isEmpty()){
-            planet = new Planet("Home Planet", USER.getName(), "You", "Cool");
+            planet = new Planet("Home Planet", USER.getName());
             planetDAO.Insert(planet);
         }
         else{
@@ -174,8 +196,42 @@ public class LandingPageActivity extends AppCompatActivity {
         setupVariables();
     }
 
+    @SuppressLint("SetTextI18n")
     void updatePlanet(){
-        planet.Name = dialogPlanetName.getText().toString();
+        String s;
+
+        s = dialogPlanetName.getText().toString();
+        if (!s.equals("")) {
+            planet.setName(s);
+            planetName.setText("Name: " + planet.getName());
+        }
+
+        s = dialogPlanetPopulation.getText().toString();
+        if (!s.equals("")) {
+            planet.setPopulation(s);
+        }
+
+        s = dialogClimate.getText().toString();
+        if (!s.equals("")) {
+            planet.setClimate(s);
+        }
+
+        s = dialogSize.getText().toString();
+        if (!s.equals("")) {
+            planet.setSize(Double.parseDouble(s));
+        }
+
+        s = dialogDistance.getText().toString();
+        if (!s.equals("")) {
+            planet.setDistanceFromStar(Double.parseDouble(s));
+        }
+
+        s = dialogSystem.getText().toString();
+        if (!s.equals("")) {
+            planet.setSolarSystemId(Integer.parseInt(s));
+        }
+
+
         planetDAO.Update(planet);
         planetName.setText("Name: " + planet.getName());
     }
