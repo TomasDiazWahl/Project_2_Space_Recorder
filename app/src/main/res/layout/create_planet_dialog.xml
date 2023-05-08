@@ -12,167 +12,183 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/planet_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginStart="10dp"
-            android:gravity="start"
-            android:text="@string/planet_name"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintHorizontal_bias="0.106" />
-
-        <EditText
-            android:id="@+id/edit_text_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="50dp"
-            android:hint="@string/enter_planet_name2" />
-
-        <TextView
-            android:id="@+id/planet_population"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginStart="10dp"
-            android:gravity="start"
-            android:text="@string/planet_population"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintHorizontal_bias="0.106" />
-
-        <EditText
-            android:id="@+id/edit_text_population"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="50dp"
-            android:hint="@string/enter_population_name" />
-
-        <TextView
-            android:id="@+id/planet_Climate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginStart="10dp"
-            android:gravity="start"
-            android:text="@string/planet_climate"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintHorizontal_bias="0.106" />
-
-        <EditText
-            android:id="@+id/edit_text_climate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="50dp"
-            android:hint="@string/enter_climate_type" />
-
-        <TextView
-            android:id="@+id/planet_Size"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginStart="10dp"
-            android:gravity="start"
-            android:text="@string/planet_size_in_km"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintHorizontal_bias="0.106" />
-
-        <EditText
-            android:id="@+id/edit_text_size"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="50dp"
-            android:hint="@string/enter_planet_size" />
-
-        <TextView
-            android:id="@+id/planet_Distance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:gravity="start"
-            android:text="@string/distance_from_star_in_km"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintHorizontal_bias="0.106" />
-
-        <EditText
-            android:id="@+id/edit_text_distance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="50dp"
-            android:hint="@string/enter_distance_from_star2" />
-
-        <TextView
-            android:id="@+id/planet_system"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginStart="10dp"
-            android:gravity="start"
-            android:text="Solar System ID"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintHorizontal_bias="0.106" />
-
-        <EditText
-            android:id="@+id/edit_text_system"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="50dp"
-            android:hint="Enter Solar System ID" />
+        <LinearLayout
 
 
+            android:layout_width="400dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/planet_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="10dp"
+                android:gravity="start"
+                android:text="@string/planet_name"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintHorizontal_bias="0.106" />
+
+            <EditText
+                android:id="@+id/edit_text_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="50dp"
+                android:hint="@string/enter_planet_name2" />
+
+            <TextView
+                android:id="@+id/planet_population"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="10dp"
+                android:gravity="start"
+                android:text="@string/planet_population"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintHorizontal_bias="0.106" />
+
+            <EditText
+                android:id="@+id/edit_text_population"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="50dp"
+                android:hint="@string/enter_population_name" />
+
+            <TextView
+                android:id="@+id/planet_Climate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="10dp"
+                android:gravity="start"
+                android:text="@string/planet_climate"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintHorizontal_bias="0.106" />
+
+            <EditText
+                android:id="@+id/edit_text_climate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="50dp"
+                android:hint="@string/enter_climate_type" />
+
+            <TextView
+                android:id="@+id/planet_Size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="10dp"
+                android:gravity="start"
+                android:text="@string/planet_size_in_km"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintHorizontal_bias="0.106" />
+
+            <EditText
+                android:id="@+id/edit_text_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="50dp"
+                android:hint="@string/enter_planet_size" />
+
+            <TextView
+                android:id="@+id/planet_Distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="start"
+                android:text="@string/distance_from_star_in_km"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintHorizontal_bias="0.106" />
+
+            <EditText
+                android:id="@+id/edit_text_distance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="50dp"
+                android:hint="@string/enter_distance_from_star2" />
+
+            <TextView
+                android:id="@+id/planet_system"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="10dp"
+                android:gravity="start"
+                android:text="Solar System ID"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintHorizontal_bias="0.106" />
+
+            <EditText
+                android:id="@+id/edit_text_system"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="50dp"
+                android:hint="Enter Solar System ID" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_cancel"
+                    android:layout_width="200dp"
+                    android:layout_height="60dp"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:text="@string/cancel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.566"
+                    app:layout_constraintStart_toEndOf="parent"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteY="379dp" />
+
+                <Button
+                    android:id="@+id/button_apply"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:gravity="center"
+                    android:text="@string/Apply"
+                    android:textSize="25sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.566"
+                    app:layout_constraintStart_toEndOf="@+id/button_cancel"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteY="379dp" />
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button_cancel"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:textSize="25sp"
-        android:gravity="center"
-        android:text="@string/cancel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.566"
-        app:layout_constraintStart_toEndOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="379dp" />
 
-    <Button
-        android:id="@+id/button_apply"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:text="@string/Apply"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.566"
-        app:layout_constraintStart_toEndOf="@+id/button_cancel"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="379dp"/>
+
 
 </ScrollView>

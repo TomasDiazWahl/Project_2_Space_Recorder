@@ -26,10 +26,10 @@ public interface PlanetDAO {
     List<Planet> getPlanets();
 
     @Query("SELECT * FROM " + AppDataBaseSpace.PLANET_TABLE + " WHERE planetId = :PlanetId")
-    List<Planet> getPlanetById(int PlanetId);
+    Planet getPlanetById(int PlanetId);
 
     @Query("SELECT * FROM " + AppDataBaseSpace.PLANET_TABLE + " WHERE name = :PlanetName")
-    List<Planet> getPlanetByName(String PlanetName);
+    Planet getPlanetByName(String PlanetName);
 
     @Query("SELECT * FROM " + AppDataBaseSpace.PLANET_TABLE + " WHERE discoverer = :user")
     List<Planet> getPlanetByOwner(String user);

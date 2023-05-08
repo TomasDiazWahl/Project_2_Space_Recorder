@@ -33,6 +33,7 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
 
     Planet planet;
     Button backButton;
+    Button buttonSubmit;
     Button createPlanetButton;
 
     CreatePlanetDialog dialog;
@@ -73,11 +74,18 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
             }
         });
 
-        dialogCancel.setOnClickListener(new View.OnClickListener() {
+        dialogApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 updatePlanet();
                 dialog.cancel();
+            }
+        });
+
+        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }
@@ -150,6 +158,7 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
         mainBinding = ActivityCreatePlanetBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
         backButton = mainBinding.buttonBack;
+        buttonSubmit = mainBinding.buttonSubmit;
         createPlanetButton = mainBinding.createPlanetButton;
         planetDAO = AppDataBaseSpace.getInstance(getApplicationContext()).PlanetDAO();
         planet = new Planet("New Planet", USER.getName());
