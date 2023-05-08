@@ -167,7 +167,7 @@ public class LandingPageActivity extends AppCompatActivity {
 
 
         profileButton.setText(USER.getName().substring(0, 1));
-        planetID.setText("ID: " + planet.getPlanetId());
+        planetID.setText("Planet ID: " + planet.getPlanetId());
         planetName.setText("Name: " + planet.getName());
 
 
