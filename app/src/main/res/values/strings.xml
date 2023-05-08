@@ -60,5 +60,6 @@
     <string name="enter_climate_type">Enter Climate type</string>
     <string name="planet_climate">Planet Climate</string>
     <string name="planet_population">Planet Population</string>
+    <string name="create_planet">Create Planet</string>
 
 </resources>
