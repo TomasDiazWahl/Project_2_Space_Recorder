@@ -113,9 +113,20 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
     }
 
     void showDialog(){
-        dialogPlanetName.setText(planet.getName());
-        dialogPlanetPopulation.setText(planet.getPopulation());
-        dialogClimate.setText(planet.getClimate());
+        if (!planet.getName().equals("") && planet.getName() != null)
+        {
+            dialogPlanetName.setText(planet.getName());
+        }
+
+        if (!planet.getPopulation().equals("") && planet.getPopulation() != null)
+        {
+            dialogPlanetPopulation.setText(planet.getPopulation());
+        }
+
+        if (!planet.getClimate().equals("") && planet.getClimate() != null)
+        {
+            dialogClimate.setText(planet.getClimate());
+        }
         dialog.show();
     }
 
