@@ -2,6 +2,7 @@ package com.example.project_2_space_recorder;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +21,7 @@ import Universe_Structure.Planet;
 import UserDB.AppDataBaseUser;
 import UserDB.User;
 import UserDB.UserDAO;
+import Utils.Toaster;
 
 
 public class CreateNewPlanetActivity extends AppCompatActivity {
@@ -85,7 +87,11 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if (checkPlanet()){
+                    Toaster.showToast(getApplicationContext(), "Planet Created!", Color.GREEN);
+                    planetDAO.Insert(planet);
+                    startActivity(LandingPageActivity.getIntent(getApplicationContext(), USERID));
+                }
             }
         });
     }
@@ -150,6 +156,16 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
 
         planetDAO.Update(planet);
         dialogPlanetName.setText("Name: " + planet.getName());
+    }
+
+    boolean checkPlanet(){
+        if (planetDAO.getPlanetByName(planet.getName()) != null){
+            Toaster.showToast(getApplicationContext(), "Planet name already taken", Color.RED);
+            planet.setName("");
+            return false;
+        }
+
+        return true;
     }
 
 

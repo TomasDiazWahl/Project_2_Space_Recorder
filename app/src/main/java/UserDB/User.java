@@ -18,6 +18,7 @@ public class User {
     ArrayList<String> planets;
     ArrayList<String> solarSystems;
     ArrayList<String> galaxies;
+    String toDisplay;
 
 
 
@@ -133,6 +134,14 @@ public class User {
 
     public void setIsAdmin(int isAdmin) {
         this.isAdmin = isAdmin;
+    }
+
+    public String getToDisplay() {
+        return toDisplay;
+    }
+
+    public void setToDisplay(String toDisplay) {
+        this.toDisplay = toDisplay;
     }
 
     @Override

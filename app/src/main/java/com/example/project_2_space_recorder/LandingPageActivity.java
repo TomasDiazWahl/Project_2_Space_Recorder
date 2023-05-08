@@ -35,11 +35,9 @@ public class LandingPageActivity extends AppCompatActivity {
 
     UserDAO userDAO;
     PlanetDAO planetDAO;
-
     ActivityLandingPageBinding mainBinding;
     Button profileButton;
     TextView planetName;
-    TextView planetID;
     Button adminButton;
     Button logOutButton;
     Button exploreButton;
@@ -141,7 +139,6 @@ public class LandingPageActivity extends AppCompatActivity {
         setContentView(mainBinding.getRoot());
 
         profileButton = mainBinding.buttonProfile;
-        planetID = mainBinding.planetId;
         planetName = mainBinding.planetName;
         adminButton = mainBinding.admin;
         logOutButton = mainBinding.buttonLogOut;
@@ -167,7 +164,7 @@ public class LandingPageActivity extends AppCompatActivity {
 
 
         profileButton.setText(USER.getName().substring(0, 1));
-        planetID.setText("Planet ID: " + planet.getPlanetId());
+        //planetID.setText("Planet ID: " + planet.getPlanetId());
         planetName.setText("Name: " + planet.getName());
 
 
@@ -191,7 +188,6 @@ public class LandingPageActivity extends AppCompatActivity {
         else{
             planet = p.get(0);
         }
-
 
         setupVariables();
     }
