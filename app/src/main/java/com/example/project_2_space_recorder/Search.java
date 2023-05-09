@@ -46,7 +46,6 @@ public class Search extends AppCompatActivity implements SearchView.OnQueryTextL
         setContentView(R.layout.activity_search);
         setupUser();
 
-        searchList = (ArrayList<String>) planetDAO.getAllPlanetsName();
         if(listView != null){
             if(adapter != null){
                 listView.setAdapter(adapter);
@@ -101,8 +100,9 @@ public class Search extends AppCompatActivity implements SearchView.OnQueryTextL
         mainBinding = ActivitySearchBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
         // initialise ListView with id
-        listView = findViewById(R.id.listView);
+        listView = findViewById(R.id.listAllPlanets);
         planetDAO = AppDataBaseSpace.getInstance(getApplicationContext()).PlanetDAO();
+        searchList = (ArrayList<String>) planetDAO.getAllPlanetsName();
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, searchList);
     }
 

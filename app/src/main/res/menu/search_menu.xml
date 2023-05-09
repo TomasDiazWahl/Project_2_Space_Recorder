@@ -2,10 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item app:showAsAction="ifRoom"
+        android:id="@+id/search_icon"
         android:title="@string/search"
         android:icon="@drawable/baseline_search_24" />
 
     <item app:showAsAction="ifRoom"
+        android:id="@+id/home_icon"
         android:title="@string/button_home"
         android:icon="@drawable/baseline_home_24" />
 
