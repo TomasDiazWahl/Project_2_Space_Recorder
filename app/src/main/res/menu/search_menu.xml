@@ -4,7 +4,8 @@
     <item app:showAsAction="ifRoom"
         android:id="@+id/search_icon"
         android:title="@string/search"
-        android:icon="@drawable/baseline_search_24" />
+        android:icon="@drawable/baseline_search_24"
+        app:actionViewClass="com.google.android.material.search.SearchView"/>
 
     <item app:showAsAction="ifRoom"
         android:id="@+id/home_icon"
