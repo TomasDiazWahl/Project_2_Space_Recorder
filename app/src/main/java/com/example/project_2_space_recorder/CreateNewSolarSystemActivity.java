@@ -55,6 +55,7 @@ public class CreateNewSolarSystemActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                systemDAO.Delete(system);
                 startActivity(ExploreActivity.getIntent(getApplicationContext(), USERID));
             }
         });
@@ -87,7 +88,7 @@ public class CreateNewSolarSystemActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (checkSystem()){
                     Toaster.showToast(getApplicationContext(), "Solar System Created!", Color.GREEN);
-                    systemDAO.Insert(system);
+                    systemDAO.Update(system);
                     startActivity(LandingPageActivity.getIntent(getApplicationContext(), USERID));
                 }
             }
@@ -103,6 +104,7 @@ public class CreateNewSolarSystemActivity extends AppCompatActivity {
 
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                systemDAO.Delete(system);
                 startActivity(LandingPageActivity.getIntent(getApplicationContext(), USERID));
                 return false;
             }
@@ -158,7 +160,8 @@ public class CreateNewSolarSystemActivity extends AppCompatActivity {
     }
 
     boolean checkSystem(){
-        if (systemDAO.getSolarSystemByName(system.getName()) != null){
+        SolarSystem s = systemDAO.getSolarSystemByName(system.getName());
+        if (s != null && s.getSolarSystemId() != system.getSolarSystemId()){
             Toaster.showToast(getApplicationContext(), "System name already taken", Color.RED);
             system.setName("");
             return false;
@@ -181,6 +184,8 @@ public class CreateNewSolarSystemActivity extends AppCompatActivity {
             createSystemButton = mainBinding.createSystemButton;
             systemDAO = AppDataBaseSpace.getInstance(getApplicationContext()).SolarSystemDAO();
             system = new SolarSystem("Your Solar System", USER.getName());
+            systemDAO.Insert(system);
+            system = systemDAO.getSolarSystemByName(system.Name);
 
             dialog = new CreateSystemDialog(CreateNewSolarSystemActivity.this);
             dialogBinding = CreateSystemDialogBinding.inflate(dialog.getLayoutInflater());

@@ -58,6 +58,7 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                planetDAO.Delete(planet);
                 startActivity(ExploreActivity.getIntent(getApplicationContext(), USERID));
             }
         });
@@ -90,7 +91,7 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (checkPlanet()){
                     Toaster.showToast(getApplicationContext(), "Planet Created!", Color.GREEN);
-                    planetDAO.Insert(planet);
+                    planetDAO.Update(planet);
                     startActivity(LandingPageActivity.getIntent(getApplicationContext(), USERID));
                 }
             }
@@ -106,6 +107,7 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
 
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                planetDAO.Delete(planet);
                 startActivity(LandingPageActivity.getIntent(getApplicationContext(), USERID));
                 return false;
             }
@@ -170,7 +172,8 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
     }
 
     boolean checkPlanet(){
-        if (planetDAO.getPlanetByName(planet.getName()) != null) {
+        Planet p = planetDAO.getPlanetByName(planet.getName());
+        if (p != null && p.getPlanetId() != planet.getPlanetId()) {
             Toaster.showToast(getApplicationContext(), "Planet name already taken", Color.RED);
             planet.setName("");
             return false;
@@ -188,6 +191,8 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
         createPlanetButton = mainBinding.createPlanetButton;
         planetDAO = AppDataBaseSpace.getInstance(getApplicationContext()).PlanetDAO();
         planet = new Planet("New Planet", USER.getName());
+        planetDAO.Insert(planet);
+        planet = planetDAO.getPlanetByName(planet.getName());
 
         dialog = new CreatePlanetDialog(CreateNewPlanetActivity.this);
         dialogBinding = CreatePlanetDialogBinding.inflate(dialog.getLayoutInflater());

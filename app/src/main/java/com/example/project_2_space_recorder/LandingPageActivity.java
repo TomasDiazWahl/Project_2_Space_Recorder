@@ -33,6 +33,8 @@ public class LandingPageActivity extends AppCompatActivity {
     User USER;
     Planet planet;
 
+    SpaceObject spaceObject;
+
     UserDAO userDAO;
     PlanetDAO planetDAO;
     ActivityLandingPageBinding mainBinding;
@@ -53,12 +55,12 @@ public class LandingPageActivity extends AppCompatActivity {
     CreatePlanetDialogBinding dialogBinding;
     EditText dialogPlanetName;
     EditText dialogPlanetPopulation;
-    EditText dialogClimate;
-    EditText dialogSize;
-    EditText dialogDistance;
-    EditText dialogSystem;
-    Button dialogApply;
-    Button dialogCancel;
+    EditText dialogPlanetClimate;
+    EditText dialogPlanetSize;
+    EditText dialogPlanetDistance;
+    EditText dialogPlanetSystem;
+    Button dialogPlanetApply;
+    Button dialogPlanetCancel;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,14 +102,14 @@ public class LandingPageActivity extends AppCompatActivity {
             }
         });
 
-        dialogCancel.setOnClickListener(new View.OnClickListener() {
+        dialogPlanetCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.cancel();
             }
         });
 
-        dialogApply.setOnClickListener(new View.OnClickListener() {
+        dialogPlanetApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 updatePlanet();
@@ -151,16 +153,16 @@ public class LandingPageActivity extends AppCompatActivity {
         dialogPlanetName.setText(planet.getName());
         dialogPlanetPopulation = dialog.findViewById(R.id.edit_text_population);
         dialogPlanetPopulation.setText(planet.getPopulation());
-        dialogClimate = dialog.findViewById(R.id.edit_text_climate);
-        dialogClimate.setText(planet.getClimate());
-        dialogSize = dialog.findViewById(R.id.edit_text_size);
-        dialogSize.setText(planet.getSize() + "");
-        dialogDistance = dialog.findViewById(R.id.edit_text_distance);
-        dialogDistance.setText(planet.getDistanceFromStar() + "");
-        dialogSystem = dialog.findViewById(R.id.edit_text_system);
-        dialogSystem.setText(planet.getSolarSystemId() + "");
-        dialogApply = dialog.findViewById(R.id.button_apply);
-        dialogCancel = dialog.findViewById(R.id.button_cancel);
+        dialogPlanetClimate = dialog.findViewById(R.id.edit_text_climate);
+        dialogPlanetClimate.setText(planet.getClimate());
+        dialogPlanetSize = dialog.findViewById(R.id.edit_text_size);
+        dialogPlanetSize.setText(planet.getSize() + "");
+        dialogPlanetDistance = dialog.findViewById(R.id.edit_text_distance);
+        dialogPlanetDistance.setText(planet.getDistanceFromStar() + "");
+        dialogPlanetSystem = dialog.findViewById(R.id.edit_text_system);
+        dialogPlanetSystem.setText(planet.getSolarSystemId() + "");
+        dialogPlanetApply = dialog.findViewById(R.id.button_apply);
+        dialogPlanetCancel = dialog.findViewById(R.id.button_cancel);
 
 
         profileButton.setText(USER.getName().substring(0, 1));
@@ -207,22 +209,22 @@ public class LandingPageActivity extends AppCompatActivity {
             planet.setPopulation(s);
         }
 
-        s = dialogClimate.getText().toString();
+        s = dialogPlanetClimate.getText().toString();
         if (!s.equals("")) {
             planet.setClimate(s);
         }
 
-        s = dialogSize.getText().toString();
+        s = dialogPlanetSize.getText().toString();
         if (!s.equals("")) {
             planet.setSize(Double.parseDouble(s));
         }
 
-        s = dialogDistance.getText().toString();
+        s = dialogPlanetDistance.getText().toString();
         if (!s.equals("")) {
             planet.setDistanceFromStar(Double.parseDouble(s));
         }
 
-        s = dialogSystem.getText().toString();
+        s = dialogPlanetSystem.getText().toString();
         if (!s.equals("")) {
             planet.setSolarSystemId(Integer.parseInt(s));
         }

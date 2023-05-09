@@ -53,6 +53,7 @@ public class CreateNewGalaxyActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                galaxyDAO.Delete(galaxy);
                 startActivity(ExploreActivity.getIntent(getApplicationContext(), USERID));
             }
         });
@@ -85,7 +86,7 @@ public class CreateNewGalaxyActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (checkGalaxy()){
                     Toaster.showToast(getApplicationContext(), "Galaxy Created!", Color.GREEN);
-                    galaxyDAO.Insert(galaxy);
+                    galaxyDAO.Update(galaxy);
                     startActivity(LandingPageActivity.getIntent(getApplicationContext(), USERID));
                 }
             }
@@ -101,6 +102,7 @@ public class CreateNewGalaxyActivity extends AppCompatActivity {
 
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                galaxyDAO.Delete(galaxy);
                 startActivity(LandingPageActivity.getIntent(getApplicationContext(), USERID));
                 return false;
             }
@@ -141,7 +143,8 @@ public class CreateNewGalaxyActivity extends AppCompatActivity {
     }
 
     boolean checkGalaxy(){
-        if (galaxyDAO.getGalaxyByName(galaxy.getName()) != null){
+        Galaxy g = galaxyDAO.getGalaxyByName(galaxy.getName());
+        if (g != null && g.getGalaxyId() != galaxy.getGalaxyId()){
             Toaster.showToast(getApplicationContext(), "Galaxy name already taken", Color.RED);
             galaxy.setName("");
             return false;
@@ -158,6 +161,8 @@ public class CreateNewGalaxyActivity extends AppCompatActivity {
         createGalaxyButton = mainBinding.createGalaxyButton;
         galaxyDAO = AppDataBaseSpace.getInstance(getApplicationContext()).GalaxyDAO();
         galaxy = new Galaxy("Your Galaxy", USER.getName());
+        galaxyDAO.Insert(galaxy);
+        galaxy = galaxyDAO.getGalaxyByName(galaxy.Name);
 
         dialog = new CreateGalaxyDialog(CreateNewGalaxyActivity.this);
         dialogBinding = CreateGalaxyDialogBinding.inflate(dialog.getLayoutInflater());
