@@ -70,11 +70,11 @@ public class Search extends AppCompatActivity implements SearchView.OnQueryTextL
             }
         });
 
-        MenuItem item1 = menu.add("Search");
-        item1.setIcon(R.drawable.baseline_search_24);
-        item1.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        MenuItem searchItem = menu.findItem(R.id.search_icon);
+//        searchItem.setIcon(R.drawable.baseline_search_24);
+//        searchItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         SearchView searchView;
-        searchView = (SearchView) item1.getActionView();
+        searchView = (SearchView) searchItem.getActionView();
         searchView.setQueryHint("Search...");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -89,7 +89,7 @@ public class Search extends AppCompatActivity implements SearchView.OnQueryTextL
             }
         });
 
-        item1.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+        searchItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
                 return false;
