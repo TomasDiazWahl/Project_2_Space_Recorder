@@ -60,7 +60,7 @@ public class Search extends AppCompatActivity implements SearchView.OnQueryTextL
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.search_menu, menu);
-        MenuItem item=menu.add("Home"); //your desired title here
+        MenuItem item = menu.add("Home"); //your desired title here
         item.setIcon(R.drawable.baseline_home_24); //your desired icon here
         item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
@@ -70,10 +70,11 @@ public class Search extends AppCompatActivity implements SearchView.OnQueryTextL
             }
         });
 
-        MenuItem item1=menu.add("Search");
+        MenuItem item1 = menu.add("Search");
         item1.setIcon(R.drawable.baseline_search_24);
         item1.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        SearchView searchView = (SearchView) item1.getActionView();
+        SearchView searchView;
+        searchView = (SearchView) item1.getActionView();
         searchView.setQueryHint("Search...");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
