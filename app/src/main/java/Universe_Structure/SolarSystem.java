@@ -3,8 +3,6 @@ package Universe_Structure;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.ArrayList;
-
 import Universe_DB.AppDataBaseSpace;
 
 @Entity(tableName = AppDataBaseSpace.SOLAR_SYSTEM_TABLE)
@@ -21,13 +19,12 @@ public class SolarSystem extends SpaceObject{
 
     //Constructors
     public SolarSystem(){
-        new SolarSystem("", "Unknown",  0);
+        new SolarSystem("", "Unknown");
     }
 
-    public SolarSystem(String name, String discoverer, int galaxy){
+    public SolarSystem(String name, String discoverer){
         super(name, discoverer);
         //this.Planets = new ArrayList<>();
-        this.galaxyId = galaxy;
     }
 
     public boolean determineGoldyLoxZone(Planet planet) {

@@ -26,8 +26,8 @@ public interface GalaxyDAO {
     List<Galaxy> getGalaxies();
 
     @Query("SELECT * FROM " + AppDataBaseSpace.GALAXY_TABLE + " WHERE galaxyId = :GalaxyId")
-    List<Galaxy> getGalaxyById(int GalaxyId);
+    Galaxy getGalaxyById(int GalaxyId);
 
     @Query("SELECT * FROM " + AppDataBaseSpace.GALAXY_TABLE + " WHERE name = :GalaxyName")
-    List<Galaxy> getGalaxyByName(String GalaxyName);
+    Galaxy getGalaxyByName(String GalaxyName);
 }

@@ -80,6 +80,7 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 updatePlanet();
+                Toaster.showToast(getApplicationContext(), "Changes saved!", Color.GREEN);
                 dialog.cancel();
             }
         });
@@ -113,17 +114,17 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
     }
 
     void showDialog(){
-        if (!planet.getName().equals("") && planet.getName() != null)
+        if (planet.getName() != null && !planet.getName().equals(""))
         {
             dialogPlanetName.setText(planet.getName());
         }
 
-        if (!planet.getPopulation().equals("") && planet.getPopulation() != null)
+        if (planet.getPopulation() != null && !planet.getPopulation().equals(""))
         {
             dialogPlanetPopulation.setText(planet.getPopulation());
         }
 
-        if (!planet.getClimate().equals("") && planet.getClimate() != null)
+        if (planet.getClimate() != null && !planet.getClimate().equals(""))
         {
             dialogClimate.setText(planet.getClimate());
         }
@@ -136,7 +137,6 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
         s = dialogPlanetName.getText().toString();
         if (!s.equals("")) {
             planet.setName(s);
-            dialogPlanetName.setText("Name: " + planet.getName());
         }
 
         s = dialogPlanetPopulation.getText().toString();
@@ -166,16 +166,15 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
 
 
         planetDAO.Update(planet);
-        dialogPlanetName.setText("Name: " + planet.getName());
+        dialogPlanetName.setText(planet.getName());
     }
 
     boolean checkPlanet(){
-        if (planetDAO.getPlanetByName(planet.getName()) != null){
+        if (planetDAO.getPlanetByName(planet.getName()) != null) {
             Toaster.showToast(getApplicationContext(), "Planet name already taken", Color.RED);
             planet.setName("");
             return false;
         }
-
         return true;
     }
 
@@ -206,7 +205,6 @@ public class CreateNewPlanetActivity extends AppCompatActivity {
         userDAO = AppDataBaseUser.getInstance(getApplicationContext()).UserDAO();
         USERID = getIntent().getIntExtra(idGetter, 0);
         USER = userDAO.getUserById(USERID).get(0);
-        System.out.println("LandingPage " + USER);
         setupVariables();
     }
 

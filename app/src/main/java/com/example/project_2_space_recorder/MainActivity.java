@@ -104,12 +104,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void addSpaceObjects(){
-        if (solarSystemDAO.getSolarSystemByName("Sol").isEmpty()){
-            SolarSystem s = new SolarSystem("Sol", "Unknown",  0);
+        if (solarSystemDAO.getSolarSystemByName("Sol") == null){
+            SolarSystem s = new SolarSystem("Sol", "Unknown");
+            s.setGalaxyId(0);
             solarSystemDAO.Insert(s);
         }
 
-        if (galaxyDAO.getGalaxyByName("Milky Way").isEmpty()){
+        if (galaxyDAO.getGalaxyByName("Milky Way") != null){
             Galaxy g = new Galaxy("Milky Way", "Unknown");
             galaxyDAO.Insert(g);
         }

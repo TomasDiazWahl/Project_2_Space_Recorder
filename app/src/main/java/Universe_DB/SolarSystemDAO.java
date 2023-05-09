@@ -27,8 +27,8 @@ public interface SolarSystemDAO {
     List<SolarSystem> getSolarSystems();
 
     @Query("SELECT * FROM " + AppDataBaseSpace.SOLAR_SYSTEM_TABLE + " WHERE SolarSystemId = :SolarSystemId")
-    List<SolarSystem> getSolarSystemById(int SolarSystemId);
+    SolarSystem getSolarSystemById(int SolarSystemId);
 
     @Query("SELECT * FROM " + AppDataBaseSpace.SOLAR_SYSTEM_TABLE + " WHERE name = :SolarSystemName")
-    List<SolarSystem> getSolarSystemByName(String SolarSystemName);
+    SolarSystem getSolarSystemByName(String SolarSystemName);
 }

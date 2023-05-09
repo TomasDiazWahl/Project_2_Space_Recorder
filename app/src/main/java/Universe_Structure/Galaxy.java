@@ -11,6 +11,7 @@ public class Galaxy extends SpaceObject{
     //Variables
     @PrimaryKey(autoGenerate = true)
     private int galaxyId;
+    private String color;
     //private ArrayList<SolarSystem> SolarSystems;
 
 
@@ -45,6 +46,15 @@ public class Galaxy extends SpaceObject{
     }*/
 
     //Getters and Setters
+
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 
     public int getGalaxyId() {
         return galaxyId;

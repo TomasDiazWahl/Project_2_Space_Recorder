@@ -32,6 +32,17 @@
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <Button
+        android:id="@+id/create_system_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:textSize="30sp"
+        android:text="@string/create_solar_system"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_planet_message" />
+
+    <Button
         android:id="@+id/button_back"
         android:layout_width="110dp"
         android:layout_height="75dp"

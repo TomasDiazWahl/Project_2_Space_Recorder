@@ -61,5 +61,15 @@
     <string name="planet_climate">Planet Climate</string>
     <string name="planet_population">Planet Population</string>
     <string name="create_planet">Create Planet</string>
+    <string name="enter_solar_system_name">Enter Solar System Name</string>
+    <string name="enter_type_of_star">Enter type of star</string>
+    <string name="distance_from_galaxy_center">Distance from galaxy center (in AU):</string>
+    <string name="distance_from_center">Enter distance from galaxy center</string>
+    <string name="galaxy_id">Galaxy ID:</string>
+    <string name="enter_galaxy_id">Enter Galaxy ID</string>
+    <string name="galaxy_name">Galaxy name:</string>
+    <string name="galaxy_color">Galaxy Color:</string>
+    <string name="enter_galaxy_name">Enter galaxy name</string>
+    <string name="create_solar_system">Create Solar System</string>
 
 </resources>

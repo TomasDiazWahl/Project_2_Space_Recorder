@@ -3,13 +3,13 @@ package com.example.project_2_space_recorder;
 import android.app.Dialog;
 import android.content.Context;
 
-public class CreatePlanetDialog extends Dialog {
+public class CreateGalaxyDialog extends Dialog {
 
-    public CreatePlanetDialog(Context context) {
+    public CreateGalaxyDialog(Context context) {
         super(context);
-        setContentView(R.layout.create_planet_dialog);
+        setContentView(R.layout.create_galaxy_dialog);
 
-        setTitle("Create your planet");
+        setTitle("Create your Galaxy");
 
         setCancelable(true);
         setCanceledOnTouchOutside(true);
