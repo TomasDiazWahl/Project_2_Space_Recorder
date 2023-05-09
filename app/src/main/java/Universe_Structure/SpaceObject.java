@@ -1,6 +1,9 @@
 package Universe_Structure;
 
+import androidx.room.ColumnInfo;
+
 public abstract class SpaceObject {
+    @ColumnInfo(name = "name")
     public String Name;
     public String Discoverer;
     private String Kind;

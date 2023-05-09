@@ -6,9 +6,11 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Universe_Structure.Planet;
+import Universe_Structure.SpaceObject;
 
 @Dao
 public interface PlanetDAO {
@@ -33,4 +35,7 @@ public interface PlanetDAO {
 
     @Query("SELECT * FROM " + AppDataBaseSpace.PLANET_TABLE + " WHERE discoverer = :user")
     List<Planet> getPlanetByOwner(String user);
+
+    @Query("SELECT name FROM " + AppDataBaseSpace.PLANET_TABLE)
+    List<String> getAllPlanetsName();
 }

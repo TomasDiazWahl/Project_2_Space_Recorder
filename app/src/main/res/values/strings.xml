@@ -71,5 +71,6 @@
     <string name="galaxy_color">Galaxy Color:</string>
     <string name="enter_galaxy_name">Enter galaxy name</string>
     <string name="create_solar_system">Create Solar System</string>
+    <string name="search">search</string>
 
 </resources>

@@ -57,6 +57,14 @@ public class ExploreActivity extends AppCompatActivity {
             }
         });
 
+        searchTheUniverse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = Search.getIntent(getApplicationContext(), USERID);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
