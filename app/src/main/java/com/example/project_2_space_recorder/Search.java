@@ -66,6 +66,7 @@ public class Search extends AppCompatActivity implements SearchView.OnQueryTextL
         item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                startActivity(LandingPageActivity.getIntent(getApplicationContext(), USERID));
                 return false;
             }
         });
@@ -95,6 +96,8 @@ public class Search extends AppCompatActivity implements SearchView.OnQueryTextL
                 return false;
             }
         });
+
+
         return super.onCreateOptionsMenu(menu);
     }
 
