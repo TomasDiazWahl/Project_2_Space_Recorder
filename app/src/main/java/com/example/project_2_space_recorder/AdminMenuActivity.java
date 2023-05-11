@@ -26,6 +26,8 @@ public class AdminMenuActivity extends AppCompatActivity {
     UserDAO userDAO;
     ActivityAdminmenuBinding mainBinding;
     TextView back;
+    Button userOptions;
+    Button spaceObjectOptions;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +53,8 @@ public class AdminMenuActivity extends AppCompatActivity {
         mainBinding = ActivityAdminmenuBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
         back = mainBinding.arrow;
+        userOptions = mainBinding.userOptions;
+        spaceObjectOptions = mainBinding.spaceObjectOptions;
     }
 
     void setupUser(){

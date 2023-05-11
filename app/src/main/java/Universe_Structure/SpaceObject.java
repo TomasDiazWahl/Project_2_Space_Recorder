@@ -53,4 +53,8 @@ public abstract class SpaceObject {
     public void setKind(String kind) {
         Kind = kind;
     }
+
+    public boolean isThisUserOwner (String userName){
+        return false;
+    }
 }

@@ -46,6 +46,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="268dp"
@@ -57,5 +58,26 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AdminMenu" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="36dp"
+        android:text="User Options"
+        android:id="@+id/user_options"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space_object_options" />
+
+    <Button
+        android:id="@+id/space_object_options"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="36dp"
+        android:text="Space Object Options"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

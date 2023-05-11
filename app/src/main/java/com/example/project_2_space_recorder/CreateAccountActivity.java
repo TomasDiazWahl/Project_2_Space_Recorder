@@ -24,6 +24,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     EditText password;
     EditText password2;
     Button createButton;
+    Button backButton;
     UserDAO userDAO;
 
 
@@ -42,6 +43,14 @@ public class CreateAccountActivity extends AppCompatActivity {
                     Intent intent = MainActivity.getIntent(getApplicationContext());
                     startActivity(intent);
                 }
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = MainActivity.getIntent(getApplicationContext());
+                startActivity(intent);
             }
         });
     }
@@ -78,6 +87,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         password = mainBinding.editTextCrtPassword;
         password2 = mainBinding.editTextReenterPassword;
         createButton = mainBinding.buttonCreateAccount;
+        backButton = mainBinding.buttonBack;
 
         userDAO = AppDataBaseUser.getInstance(getApplicationContext()).UserDAO();
     }
