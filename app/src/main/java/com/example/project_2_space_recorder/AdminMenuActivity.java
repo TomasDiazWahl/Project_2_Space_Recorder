@@ -45,6 +45,20 @@ public class AdminMenuActivity extends AppCompatActivity {
                 startActivity(LandingPageActivity.getIntent(getApplicationContext(), USERID));
             }
         });
+
+        spaceObjectOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(Search.getIntent(getApplicationContext(), USERID));
+            }
+        });
+
+        userOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(SearchUser.getIntent(getApplicationContext(), USERID));
+            }
+        });
     }
 
 
