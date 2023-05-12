@@ -1,3 +1,10 @@
+/*
+ * Authors: Tomas Diaz-Wahl & Alexis Petignat
+ * Date: 2023-05-12
+ * Purpose: This class allows a new user to create an account which is then committed to the
+ * user table in the database
+ * */
+
 package com.example.project_2_space_recorder;
 
 import android.content.Context;

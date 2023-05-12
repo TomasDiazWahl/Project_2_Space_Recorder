@@ -1,3 +1,10 @@
+/*
+ * Authors: Tomas Diaz-Wahl & Alexis Petignat
+ * Date: 2023-05-12
+ * Purpose: This class creates a dialogue that allows a user to enter fields while creating a
+ * new galaxy object.
+ * */
+
 package com.example.project_2_space_recorder;
 
 import android.app.Dialog;
