@@ -40,6 +40,10 @@ public class Planet extends SpaceObject{
 
     //Methods
 
+    @Override
+    public String toString() {
+        return Name;
+    }
 
     public int getPlanetId() {
         return planetId;

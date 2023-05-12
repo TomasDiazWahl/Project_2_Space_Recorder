@@ -2,6 +2,8 @@ package Universe_Structure;
 
 import androidx.room.ColumnInfo;
 
+import UserDB.User;
+
 public abstract class SpaceObject {
     @ColumnInfo(name = "name")
     public String Name;
@@ -54,7 +56,7 @@ public abstract class SpaceObject {
         Kind = kind;
     }
 
-    public boolean isThisUserOwner (String userName){
-        return false;
+    public boolean isThisUserOwner (User user){
+        return this.Discoverer.equals(user.getName());
     }
 }

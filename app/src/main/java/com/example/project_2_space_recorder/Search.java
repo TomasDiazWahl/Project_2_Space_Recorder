@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -24,6 +25,8 @@ import java.util.List;
 
 import Universe_DB.AppDataBaseSpace;
 import Universe_DB.PlanetDAO;
+import Universe_Structure.Planet;
+import Universe_Structure.PlanetListItem;
 import Universe_Structure.SpaceObject;
 import UserDB.AppDataBaseUser;
 import UserDB.User;
@@ -37,8 +40,9 @@ public class Search extends AppCompatActivity implements SearchView.OnQueryTextL
     UserDAO userDAO;
     PlanetDAO planetDAO;
     ListView listView;
-    ArrayAdapter<String> adapter;
-    ArrayList<String> searchList;
+
+    ArrayList<Planet> searchList;
+    ArrayAdapter<Planet> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,16 @@ public class Search extends AppCompatActivity implements SearchView.OnQueryTextL
         else{
             System.out.println("Bad Stuff");
         }
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Planet p = (Planet) adapterView.getItemAtPosition(i);
+                System.out.println(p.getPlanetId() + " " + p.getName());
+                Intent intent = new Intent(getApplicationContext(), LandingPageActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -107,8 +121,8 @@ public class Search extends AppCompatActivity implements SearchView.OnQueryTextL
         // initialise ListView with id
         listView = findViewById(R.id.listAllPlanets);
         planetDAO = AppDataBaseSpace.getInstance(getApplicationContext()).PlanetDAO();
-        searchList = (ArrayList<String>) planetDAO.getAllPlanetsName();
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, searchList);
+        searchList = (ArrayList<Planet>) planetDAO.getPlanets();
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, searchList);
     }
 
     void setupUser(){
