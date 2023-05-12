@@ -2,15 +2,12 @@ package com.example.project_2_space_recorder;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -21,13 +18,10 @@ import androidx.room.Room;
 import com.example.project_2_space_recorder.databinding.ActivitySearchBinding;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import Universe_DB.AppDataBaseSpace;
 import Universe_DB.PlanetDAO;
 import Universe_Structure.Planet;
-import Universe_Structure.PlanetListItem;
-import Universe_Structure.SpaceObject;
 import UserDB.AppDataBaseUser;
 import UserDB.User;
 import UserDB.UserDAO;
@@ -64,8 +58,7 @@ public class Search extends AppCompatActivity implements SearchView.OnQueryTextL
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Planet p = (Planet) adapterView.getItemAtPosition(i);
                 System.out.println(p.getPlanetId() + " " + p.getName());
-                Intent intent = new Intent(getApplicationContext(), LandingPageActivity.class);
-                startActivity(intent);
+                startActivity(DisplayPlanetActivity.getIntent(getApplicationContext(), USERID, p.getPlanetId()));
             }
         });
 

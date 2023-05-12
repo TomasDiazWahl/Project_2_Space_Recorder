@@ -49,7 +49,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="268dp"
+        android:layout_marginTop="150dp"
         android:gravity=""
         android:text="You're an admin, you're cool"
         android:textColor="@color/black"
