@@ -1,3 +1,10 @@
+/*
+* Authors: Tomas Diaz-Wahl & Alexis Petignat
+* Date: 2023-05-12
+* Purpose: This class represents an admin menu that allows an admin user to navigate to custom
+* search options
+* */
+
 package com.example.project_2_space_recorder;
 
 import android.annotation.SuppressLint;

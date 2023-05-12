@@ -26,7 +26,6 @@ public class UltraSuperSecretActivity extends AppCompatActivity {
     int USERID;
     User USER;
     UserDAO userDAO;
-    EditText query;
     TextView answer;
     Button confirm;
 //    Button backButton;
@@ -81,7 +80,6 @@ public class UltraSuperSecretActivity extends AppCompatActivity {
     void setupVariables(){
         mainBinding = ActivityUltraSuperSecretBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
-        query = mainBinding.query;
         answer = mainBinding.fortyTwo;
         confirm = mainBinding.confirmButton;
 //        backButton = mainBinding.buttonBack;

@@ -1,3 +1,9 @@
+/*
+ * Authors: Tomas Diaz-Wahl & Alexis Petignat
+ * Date: 2023-05-12
+ * Purpose: This class allows a user to a new galaxy object to the database as the discoverer
+ * */
+
 package com.example.project_2_space_recorder;
 
 import android.annotation.SuppressLint;
