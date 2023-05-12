@@ -183,7 +183,7 @@ public class LandingPageActivity extends AppCompatActivity {
         List<Planet> p = planetDAO.getPlanetByOwner(USER.getName());
 
         if (p.isEmpty()){
-            planet = new Planet("Home Planet", USER.getName());
+            planet = new Planet(USER.getName() + "'s Home Planet", USER.getName());
             planetDAO.Insert(planet);
         }
         else{

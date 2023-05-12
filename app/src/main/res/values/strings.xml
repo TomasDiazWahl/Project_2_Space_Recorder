@@ -72,5 +72,7 @@
     <string name="enter_galaxy_name">Enter galaxy name</string>
     <string name="create_solar_system">Create Solar System</string>
     <string name="search">search</string>
+    <string name="edit_planet">Edit Planet</string>
+    <string name="delete_planet">Delete Planet</string>
 
 </resources>
