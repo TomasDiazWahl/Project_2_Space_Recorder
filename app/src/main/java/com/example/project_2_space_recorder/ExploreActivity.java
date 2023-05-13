@@ -88,7 +88,7 @@ public class ExploreActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuItem item=menu.add("Home"); //your desired title here
-        item.setIcon(R.drawable.home_button); //your desired icon here
+        item.setIcon(R.drawable.baseline_home_24); //your desired icon here
         item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 

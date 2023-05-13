@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -103,8 +105,25 @@ public class DisplaySystemActivity extends AppCompatActivity {
             public void onClick(View view) {
                 solarSystemDAO.Delete(SYSTEM);
                 confirmDialog.cancel();
+                startActivity(LandingPageActivity.getIntent(getApplicationContext(), USERID));
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuItem item=menu.add("Home"); //your desired title here
+        item.setIcon(R.drawable.baseline_home_24); //your desired icon here
+        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                startActivity(LandingPageActivity.getIntent(getApplicationContext(), USERID));
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
     }
 
     void updateSystem(){
@@ -162,9 +181,9 @@ public class DisplaySystemActivity extends AppCompatActivity {
         setContentView(mainBinding.getRoot());
 
         systemName = mainBinding.viewSystemName;
-        systemName.setText(SYSTEM.getName());
+        systemName.setText("Name: " + SYSTEM.getName());
         systemID = mainBinding.viewSystemID;
-        systemID.setText(SYSTEM.getSolarSystemId() + "");
+        systemID.setText("ID: " + SYSTEM.getSolarSystemId());
         editSystemButton = mainBinding.editSystem;
         deleteSystemButton = mainBinding.deleteSystem;
 
