@@ -140,7 +140,7 @@ public class SearchSolarSystem extends AppCompatActivity implements SearchView.O
     }
 
     public static Intent getIntent(Context context, int userID){
-        Intent intent = new Intent(context, Search.class);
+        Intent intent = new Intent(context, SearchSolarSystem.class);
         intent.putExtra(idGetter, userID);
         return intent;
     }

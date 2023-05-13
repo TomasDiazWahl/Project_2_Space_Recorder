@@ -22,7 +22,9 @@ public class ExploreActivity extends AppCompatActivity {
     Button findNewPlanet;
     Button findNewSolarSystem;
     Button wormHole;
-    Button searchTheUniverse;
+    Button searchPlanets;
+    Button searchSolarSystems;
+    Button searchGalaxies;
     int USERID;
     User USER;
     UserDAO userDAO;
@@ -57,10 +59,26 @@ public class ExploreActivity extends AppCompatActivity {
             }
         });
 
-        searchTheUniverse.setOnClickListener(new View.OnClickListener() {
+        searchPlanets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = Search.getIntent(getApplicationContext(), USERID);
+                startActivity(intent);
+            }
+        });
+
+        searchSolarSystems.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = SearchSolarSystem.getIntent(getApplicationContext(), USERID);
+                startActivity(intent);
+            }
+        });
+
+        searchGalaxies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = SearchGalaxy.getIntent(getApplicationContext(), USERID);
                 startActivity(intent);
             }
         });
@@ -96,7 +114,9 @@ public class ExploreActivity extends AppCompatActivity {
         findNewPlanet = mainBinding.findNewPlanet;
         findNewSolarSystem = mainBinding.findNewSolarSystem;
         wormHole = mainBinding.jumpThroughWormhole;
-        searchTheUniverse = mainBinding.buttonSearch;
+        searchPlanets = mainBinding.buttonSearch;
+        searchSolarSystems = mainBinding.buttonSearchSolarSystems;
+        searchGalaxies = mainBinding.buttonSearchGalaxies;
     }
 
     void setupUser(){

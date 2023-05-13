@@ -52,6 +52,10 @@ public class SolarSystem extends SpaceObject{
         return false;
     }
 
+    @Override
+    public String toString() {
+        return Name + " Solar System ID: " + this.getSolarSystemId();
+    }
 
     public int getGalaxy() {
         return galaxyId;
