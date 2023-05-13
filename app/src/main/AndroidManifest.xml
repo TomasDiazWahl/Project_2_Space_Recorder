@@ -62,6 +62,12 @@
         <activity
             android:name=".SearchUser"
             android:exported="true" />
+        <activity
+            android:name=".SearchSolarSystem"
+            android:exported="true" />
+        <activity
+            android:name=".SearchGalaxy"
+            android:exported="true" />
     </application>
 
 </manifest>

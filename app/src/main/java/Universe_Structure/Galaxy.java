@@ -48,6 +48,11 @@ public class Galaxy extends SpaceObject{
     //Getters and Setters
 
 
+    @Override
+    public String toString() {
+        return Name + " Galaxy ID: " + this.getGalaxyId();
+    }
+
     public String getColor() {
         return color;
     }

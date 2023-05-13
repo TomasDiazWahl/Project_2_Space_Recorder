@@ -114,7 +114,7 @@ public class SearchGalaxy extends AppCompatActivity implements SearchView.OnQuer
         mainBinding = ActivitySearchGalaxyBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
         // initialise ListView with id
-        listView = findViewById(R.id.list_all_solar_systems);
+        listView = findViewById(R.id.list_all_galaxies);
         galaxyDAO = AppDataBaseSpace.getInstance(getApplicationContext()).GalaxyDAO();
         searchList = (ArrayList<Galaxy>) galaxyDAO.getGalaxies();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, searchList);
@@ -140,7 +140,7 @@ public class SearchGalaxy extends AppCompatActivity implements SearchView.OnQuer
     }
 
     public static Intent getIntent(Context context, int userID){
-        Intent intent = new Intent(context, Search.class);
+        Intent intent = new Intent(context, SearchGalaxy.class);
         intent.putExtra(idGetter, userID);
         return intent;
     }
