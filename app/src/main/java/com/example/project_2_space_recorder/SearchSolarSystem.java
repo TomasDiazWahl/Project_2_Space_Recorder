@@ -61,8 +61,7 @@ public class SearchSolarSystem extends AppCompatActivity implements SearchView.O
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 SolarSystem s = (SolarSystem) adapterView.getItemAtPosition(i);
                 System.out.println(s.getSolarSystemId() + " " + s.getName());
-                Intent intent = new Intent(getApplicationContext(), LandingPageActivity.class);
-                startActivity(intent);
+                startActivity(DisplaySystemActivity.getIntent(getApplicationContext(), USERID, s.getSolarSystemId()));
             }
         });
 

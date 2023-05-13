@@ -61,8 +61,7 @@ public class SearchGalaxy extends AppCompatActivity implements SearchView.OnQuer
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Galaxy g = (Galaxy) adapterView.getItemAtPosition(i);
                 System.out.println(g.getGalaxyId() + " " + g.getName());
-                Intent intent = new Intent(getApplicationContext(), LandingPageActivity.class);
-                startActivity(intent);
+                startActivity(DisplayGalaxyActivity.getIntent(getApplicationContext(), USERID, g.getGalaxyId()));
             }
         });
 
