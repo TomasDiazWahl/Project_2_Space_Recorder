@@ -37,6 +37,7 @@ public class DisplayPlanetActivity extends AppCompatActivity {
 
     @NonNull ActivityDisplayPlanetBinding mainBinding;
     TextView planetName;
+    TextView planetID;
     Button editPlanetButton;
     Button deletePlanetButton;
 
@@ -160,6 +161,8 @@ public class DisplayPlanetActivity extends AppCompatActivity {
 
         planetName = mainBinding.viewPlanetName;
         planetName.setText(PLANET.getName());
+        planetID = mainBinding.viewPlanetID;
+        planetID.setText(PLANET.getPlanetId());
         editPlanetButton = mainBinding.editPlanet;
         deletePlanetButton = mainBinding.deletePlanet;
 

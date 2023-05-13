@@ -30,4 +30,7 @@ public interface GalaxyDAO {
 
     @Query("SELECT * FROM " + AppDataBaseSpace.GALAXY_TABLE + " WHERE name = :GalaxyName")
     Galaxy getGalaxyByName(String GalaxyName);
+
+    @Query("SELECT * FROM " + AppDataBaseSpace.GALAXY_TABLE + " WHERE discoverer = :Owner")
+    List<Galaxy> getGalaxiesByOwner(String Owner);
 }

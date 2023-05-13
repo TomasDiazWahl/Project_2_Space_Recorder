@@ -31,4 +31,7 @@ public interface SolarSystemDAO {
 
     @Query("SELECT * FROM " + AppDataBaseSpace.SOLAR_SYSTEM_TABLE + " WHERE name = :SolarSystemName")
     SolarSystem getSolarSystemByName(String SolarSystemName);
+
+    @Query("SELECT * FROM " + AppDataBaseSpace.SOLAR_SYSTEM_TABLE + " WHERE discoverer = :SolarSystemOwner")
+    List<SolarSystem> getSolarSystemByOwner(String SolarSystemOwner);
 }

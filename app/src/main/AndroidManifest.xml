@@ -12,6 +12,12 @@
         android:theme="@style/Theme.Project_2_Space_Recorder"
         tools:targetApi="31">
         <activity
+            android:name=".DisplayGalaxyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DisplaySystemActivity"
+            android:exported="false" />
+        <activity
             android:name=".DisplayPlanetActivity"
             android:exported="false" />
         <activity
