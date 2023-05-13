@@ -14,10 +14,10 @@
         android:src="@drawable/black_hole"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/find_new_planet"
@@ -34,7 +34,7 @@
         android:id="@+id/find_new_solar_system"
         android:layout_width="264dp"
         android:layout_height="54dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="30dp"
         android:text="@string/find_new_solar_system"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -45,7 +45,7 @@
         android:id="@+id/jump_through_wormhole"
         android:layout_width="207dp"
         android:layout_height="65dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="30dp"
         android:text="@string/jump_through_wormhole"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,42 +55,38 @@
         android:id="@+id/button_search"
         android:layout_width="208dp"
         android:layout_height="86dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="60dp"
         android:text="search Planets"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jump_through_wormhole"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/button_search_solar_systems"
-        android:layout_width="208dp"
-        android:layout_height="86dp"
-        android:layout_marginTop="96dp"
-        android:text="search solar systems"
-        android:textColor="@color/white"
+        android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jump_through_wormhole"
-        app:layout_constraintVertical_bias="0.395" />
+        app:layout_constraintVertical_bias="0.087" />
+
+    <Button
+        android:id="@+id/button_search_solar_systems"
+        android:layout_width="150dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="search solar systems"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_search" />
 
     <Button
         android:id="@+id/button_search_galaxies"
-        android:layout_width="208dp"
+        android:layout_width="150dp"
         android:layout_height="86dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
         android:text="search galaxies"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jump_through_wormhole"
-        app:layout_constraintVertical_bias="0.803" />
+        app:layout_constraintTop_toBottomOf="@+id/button_search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
