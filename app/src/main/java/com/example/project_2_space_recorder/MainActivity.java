@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             solarSystemDAO.Insert(s);
         }
 
-        if (galaxyDAO.getGalaxyByName("Milky Way") != null){
+        if (galaxyDAO.getGalaxyByName("Milky Way") == null){
             Galaxy g = new Galaxy("Milky Way", "Unknown");
             galaxyDAO.Insert(g);
         }

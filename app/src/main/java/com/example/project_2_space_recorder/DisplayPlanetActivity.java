@@ -69,7 +69,7 @@ public class DisplayPlanetActivity extends AppCompatActivity {
         editPlanetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.show();
+                showDialog();
             }
         });
 
@@ -151,6 +151,21 @@ public class DisplayPlanetActivity extends AppCompatActivity {
         planetName.setText("Name: " + PLANET.getName());
     }
 
+    void showDialog() {
+        if (PLANET.getName() != null && !PLANET.getName().equals("")) {
+            dialogPlanetName.setText(PLANET.getName());
+        }
+
+        if (PLANET.getPopulation() != null && !PLANET.getPopulation().equals("")) {
+            dialogPlanetPopulation.setText(PLANET.getPopulation());
+        }
+
+        if (PLANET.getClimate() != null && !PLANET.getClimate().equals("")) {
+            dialogPlanetClimate.setText(PLANET.getClimate());
+        }
+        dialog.show();
+    }
+
 
 
 
@@ -162,7 +177,7 @@ public class DisplayPlanetActivity extends AppCompatActivity {
         planetName = mainBinding.viewPlanetName;
         planetName.setText(PLANET.getName());
         planetID = mainBinding.viewPlanetID;
-        planetID.setText(PLANET.getPlanetId());
+        planetID.setText(PLANET.getPlanetId() + "");
         editPlanetButton = mainBinding.editPlanet;
         deletePlanetButton = mainBinding.deletePlanet;
 

@@ -65,7 +65,7 @@ public class DisplaySystemActivity extends AppCompatActivity {
         editSystemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.show();
+                showDialog();
             }
         });
 
@@ -136,6 +136,23 @@ public class DisplaySystemActivity extends AppCompatActivity {
         dialogSystemName.setText(SYSTEM.getName());
     }
 
+    @SuppressLint("SetTextI18n")
+    void showDialog(){
+        if (SYSTEM.getName() != null && !SYSTEM.getName().equals(""))
+        {
+            dialogSystemName.setText(SYSTEM.getName());
+        }
+
+        if (SYSTEM.getTypeOfStar() != null && !SYSTEM.getTypeOfStar().equals(""))
+        {
+            dialogStar.setText(SYSTEM.getTypeOfStar());
+        }
+        dialogDistance.setText(SYSTEM.getDistanceFromGalaxyCenter() + "");
+        dialogGalaxy.setText(SYSTEM.getGalaxyId() + "");
+
+        dialog.show();
+    }
+
 
 
 
@@ -147,7 +164,7 @@ public class DisplaySystemActivity extends AppCompatActivity {
         systemName = mainBinding.viewSystemName;
         systemName.setText(SYSTEM.getName());
         systemID = mainBinding.viewSystemID;
-        systemID.setText(SYSTEM.getSolarSystemId());
+        systemID.setText(SYSTEM.getSolarSystemId() + "");
         editSystemButton = mainBinding.editSystem;
         deleteSystemButton = mainBinding.deleteSystem;
 

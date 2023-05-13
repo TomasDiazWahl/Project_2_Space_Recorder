@@ -67,7 +67,7 @@ public class DisplayGalaxyActivity extends AppCompatActivity {
         editGalaxyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.show();
+                showDialog();
             }
         });
 
@@ -128,6 +128,20 @@ public class DisplayGalaxyActivity extends AppCompatActivity {
         dialogGalaxyName.setText(GALAXY.getName());
     }
 
+    @SuppressLint("SetTextI18n")
+    void showDialog(){
+        if (GALAXY.getName() != null && !GALAXY.getName().equals(""))
+        {
+            dialogGalaxyName.setText(GALAXY.getName());
+        }
+
+        if (GALAXY.getColor() != null && !GALAXY.getColor().equals(""))
+        {
+            dialogColor.setText(GALAXY.getColor());
+        }
+        dialog.show();
+    }
+
 
 
 
@@ -139,7 +153,7 @@ public class DisplayGalaxyActivity extends AppCompatActivity {
         viewGalaxyName = mainBinding.viewGalaxyName;
         viewGalaxyName.setText(GALAXY.getName());
         viewGalaxyID = mainBinding.viewGalaxyID;
-        viewGalaxyID.setText(GALAXY.getGalaxyId());
+        viewGalaxyID.setText(GALAXY.getGalaxyId() + "");
         editGalaxyButton = mainBinding.editGalaxy;
         deleteGalaxyButton = mainBinding.deleteGalaxy;
 
